@@ -151,5 +151,6 @@ namespace Oil
             this.Hide();
         }
         //Анька молодец
+        //Da.
     }
 }
