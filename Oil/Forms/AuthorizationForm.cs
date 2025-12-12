@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 
-
 namespace Oil
 {
     public partial class AuthorizationForm : Form
@@ -21,7 +20,6 @@ namespace Oil
             InitializeComponent();
         }
 
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string login = txtLogin.Text;
@@ -29,13 +27,13 @@ namespace Oil
 
             try
             {
-                var (roleId, postName, employeeName) = AuthenticateUser(login, password);
+                var authenticationResult = AuthenticateUser(login, password);
 
-                if (roleId != 0)
+                if (authenticationResult.roleId != 0)
                 {
-                    if (roleId == 2)
+                    if (authenticationResult.roleId == 2)
                     {
-                        Form employeeForm = GetEmployeeFormByPostSwitch(login, postName, employeeName);
+                        Form employeeForm = GetEmployeeFormByPostSwitch(login, authenticationResult.postName, authenticationResult.employeeName);
 
                         if (employeeForm != null)
                         {
@@ -44,10 +42,10 @@ namespace Oil
                         }
                         else
                         {
-                            MessageBox.Show($"Для вашей должности '{postName}' не определена форма доступа.");
+                            MessageBox.Show($"Для вашей должности '{authenticationResult.postName}' не определена форма доступа.");
                         }
                     }
-                    else if (roleId == 3)
+                    else if (authenticationResult.roleId == 3)
                     {
                         ManagementForm managementForm = new ManagementForm(login);
                         managementForm.Show();
@@ -94,11 +92,16 @@ namespace Oil
                     }
                 }
             }
-            return (0, null, null);
+            return (0, string.Empty, string.Empty); // Возвращаем пустые строки вместо null
         }
 
         private Form GetEmployeeFormByPostSwitch(string login, string postName, string employeeName)
         {
+            // Проверяем, что postName не null и не пустой
+            if (string.IsNullOrEmpty(postName))
+            {
+                return new GuestForm();
+            }
 
             string normalizedPostName = postName.ToLower();
 
@@ -107,14 +110,13 @@ namespace Oil
                 case "химик":
                 case "старший химик":
                 case "лаборант":
-                case "лаборант медицинский":
                 case "инженер качества":
                 case "старший инженер качества":
                 case "технолог":
                 case "старший технолог":
                 case "аналитик":
-                    LaboratoryForm laboratoryForm = new LaboratoryForm(); // Изменил конструктор
-                    laboratoryForm.Login = login; // Добавьте свойство Login в LaboratoryForm
+                    LaboratoryForm laboratoryForm = new LaboratoryForm();
+                    laboratoryForm.Login = login; // Предполагается, что свойство Login существует
                     return laboratoryForm;
 
                 case "водитель":
@@ -150,7 +152,5 @@ namespace Oil
             guestForm.Show();
             this.Hide();
         }
-        //Анька молодец
-        //Da.
     }
 }

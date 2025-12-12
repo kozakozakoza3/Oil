@@ -15,10 +15,10 @@ namespace Oil
 {
     public partial class LaboratoryAnalysisForm : Form
     {
-        public LaboratoryAnalysis Analysis { get; set; }
-        public string Analyst { get; set; }
+        public LaboratoryAnalysis? Analysis { get; set; }
+        public string? Analyst { get; set; }
 
-        // Добавляем константы для валидации диапазонов
+        // Добавляем константы
         private const double MIN_DENSITY = 0.7;
         private const double MAX_DENSITY = 1.0;
         private const double MIN_SULFUR = 0.0;
@@ -48,36 +48,38 @@ namespace Oil
             txtFlashPoint.TextChanged += NumericTextBox_TextChanged;
         }
 
-        private void NumericTextBox_TextChanged(object sender, EventArgs e)
+        private void NumericTextBox_TextChanged(object? sender, EventArgs e)
         {
-            var textBox = (TextBox)sender;
-            if (!string.IsNullOrEmpty(textBox.Text))
+            if (sender is TextBox textBox)
             {
-                // Удаляем все нецифровые символы, кроме точки и запятой
-                string cleanText = new string(textBox.Text.Where(c => char.IsDigit(c) || c == '.' || c == ',').ToArray());
-
-                // Заменяем запятую на точку для унификации
-                cleanText = cleanText.Replace(',', '.');
-
-                // Проверяем, что точка только одна
-                int dotCount = cleanText.Count(c => c == '.');
-                if (dotCount > 1)
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    cleanText = cleanText.Substring(0, cleanText.LastIndexOf('.'));
-                }
+                    // Удаляем все нецифровые символы, кроме точки и запятой
+                    string cleanText = new string(textBox.Text.Where(c => char.IsDigit(c) || c == '.' || c == ',').ToArray());
 
-                if (textBox.Text != cleanText)
-                {
-                    int cursorPos = textBox.SelectionStart;
-                    textBox.Text = cleanText;
-                    textBox.SelectionStart = Math.Max(0, cursorPos - 1);
+                    // Заменяем запятую на точку для унификации
+                    cleanText = cleanText.Replace(',', '.');
+
+                    // Проверяем, что точка только одна
+                    int dotCount = cleanText.Count(c => c == '.');
+                    if (dotCount > 1)
+                    {
+                        cleanText = cleanText.Substring(0, cleanText.LastIndexOf('.'));
+                    }
+
+                    if (textBox.Text != cleanText)
+                    {
+                        int cursorPos = textBox.SelectionStart;
+                        textBox.Text = cleanText;
+                        textBox.SelectionStart = Math.Max(0, cursorPos - 1);
+                    }
                 }
             }
         }
 
-        private void LaboratoryAnalysisForm_Load(object sender, EventArgs e)
+        private void LaboratoryAnalysisForm_Load(object? sender, EventArgs e)
         {
-            txtAnalyst.Text = Analyst;
+            txtAnalyst.Text = Analyst ?? string.Empty;
 
             if (Analysis != null && Analysis.Id > 0)
             {
@@ -100,12 +102,15 @@ namespace Oil
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object? sender, EventArgs e)
         {
             if (ValidateForm())
             {
                 try
                 {
+                    // Создаем новый объект Analysis, если он был null
+                    Analysis ??= new LaboratoryAnalysis();
+
                     Analysis.ProductName = txtProductName.Text;
                     Analysis.Analyst = txtAnalyst.Text;
 
@@ -156,13 +161,13 @@ namespace Oil
                                 analysis_date = @analysisDate
                             WHERE analysis_id = @analysisId";
 
-            var parameters = new Dictionary<string, object>
+            var parameters = new Dictionary<string, object?>
             {
-                { "@productName", Analysis.ProductName },
+                { "@productName", Analysis!.ProductName },
                 { "@analyst", Analysis.Analyst },
                 { "@density", Analysis.Density },
                 { "@sulfurContent", Analysis.SulfurContent },
-                { "@waterContent", Analysis.WaterContent ?? (object)DBNull.Value },
+                { "@waterContent", Analysis.WaterContent ?? (object?)DBNull.Value },
                 { "@viscosity", Analysis.Viscosity },
                 { "@flashPoint", Analysis.FlashPoint },
                 { "@analysisDate", Analysis.AnalysisDate },
@@ -184,13 +189,13 @@ namespace Oil
                             (@productName, @analyst, @density, @sulfurContent,
                              @waterContent, @viscosity, @flashPoint, @analysisDate)";
 
-            var parameters = new Dictionary<string, object>
+            var parameters = new Dictionary<string, object?>
             {
-                { "@productName", Analysis.ProductName },
+                { "@productName", Analysis!.ProductName },
                 { "@analyst", Analysis.Analyst },
                 { "@density", Analysis.Density },
                 { "@sulfurContent", Analysis.SulfurContent },
-                { "@waterContent", Analysis.WaterContent ?? (object)DBNull.Value },
+                { "@waterContent", Analysis.WaterContent ?? (object?)DBNull.Value },
                 { "@viscosity", Analysis.Viscosity },
                 { "@flashPoint", Analysis.FlashPoint },
                 { "@analysisDate", Analysis.AnalysisDate }
@@ -202,7 +207,7 @@ namespace Oil
             }
         }
 
-        private bool ExecuteParameterizedQuery(string query, Dictionary<string, object> parameters)
+        private bool ExecuteParameterizedQuery(string query, Dictionary<string, object?> parameters)
         {
             try
             {
@@ -216,7 +221,7 @@ namespace Oil
                     {
                         foreach (var param in parameters)
                         {
-                            command.Parameters.AddWithValue(param.Key, param.Value);
+                            command.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
                         }
 
                         int rowsAffected = command.ExecuteNonQuery();
@@ -232,7 +237,7 @@ namespace Oil
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object? sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
