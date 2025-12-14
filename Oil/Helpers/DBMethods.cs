@@ -74,7 +74,7 @@ namespace Oil.Helpers
             return GetData($"SELECT {idColumn} as id, {nameColumn} as name FROM {tableName}");
         }
 
-        // 6. Проверить подключение
+        // 6. Проверить подключение ГП
         public static bool TestConnection()
         {
             try
