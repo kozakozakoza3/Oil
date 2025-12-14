@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using Oil.Management;
 
 namespace Oil
 {
@@ -116,7 +117,6 @@ namespace Oil
                 case "старший технолог":
                 case "аналитик":
                     LaboratoryForm laboratoryForm = new LaboratoryForm();
-                    laboratoryForm.Login = login; // Предполагается, что свойство Login существует
                     return laboratoryForm;
 
                 case "водитель":
@@ -137,8 +137,8 @@ namespace Oil
                 case "старший кладовщик":
                 case "грузчик":
                 case "складской работник":
-                    WarehouseForm warehouseForm = new WarehouseForm(login);
-                    return warehouseForm;
+                    StorageForm storageForm = new StorageForm(login);
+                    return storageForm;
 
                 default:
                     GuestForm guestForm = new GuestForm();

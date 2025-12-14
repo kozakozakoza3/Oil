@@ -3,6 +3,7 @@ using Oil.Helpers;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Oil.Forms;
 
 namespace Oil
 {
@@ -29,14 +30,12 @@ namespace Oil
 
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
-            // Открываем форму для просмотра существующих анализов
             LaboratoryAnalysisForm form = new LaboratoryAnalysisForm();
             form.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            // Закрываем все открытые формы и возвращаемся к авторизации
             var authForm = new AuthorizationForm();
             authForm.Show();
             this.Close();

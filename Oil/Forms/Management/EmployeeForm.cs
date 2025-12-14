@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Oil
+namespace Oil.Forms.Management
 {
-    public partial class WarehouseForm : Form
+    public partial class EmployeeForm : Form
     {
-        public WarehouseForm(string login)
+        public EmployeeForm()
         {
             InitializeComponent();
         }

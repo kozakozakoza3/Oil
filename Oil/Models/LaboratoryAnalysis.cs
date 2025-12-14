@@ -1,36 +1,39 @@
 ﻿using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace Oil.Models
 {
     public class LaboratoryAnalysis
     {
-        public int Id { get; set; }
+        // Основные поля из таблицы Laboratory_analysis
+        public int LaboratoryAnalysisId { get; set; }
+        public int OilProductId { get; set; }
+        public int EmployeeId { get; set; }
+        public decimal SampleVolume { get; set; }
+        public string UnitOfMeasureVolume { get; set; }
+        public double OilProductDensity { get; set; }
+        public string UnitOfMeasureDensity { get; set; }
+        public decimal OilProductSulfurContent { get; set; }
+        public string UnitOfMeasureSulfur { get; set; }
+        public double? OilProductWaterContent { get; set; }
+        public string UnitOfMeasureWater { get; set; }
+        public double OilProductViscosity { get; set; }
+        public string UnitOfMeasureViscosity { get; set; }
+        public int OilProductFlashPoint { get; set; }
+        public string UnitOfMeasureFlash { get; set; }
+        public DateTime DateTimeAnalysis { get; set; }
+
+        // Для удобства - связанные данные
         public string ProductName { get; set; }
-        public string Analyst { get; set; }
-        public double Density { get; set; }
-        public double SulfurContent { get; set; }
-        public double? WaterContent { get; set; }
-        public double Viscosity { get; set; }
-        public int FlashPoint { get; set; }
-        public DateTime AnalysisDate { get; set; }
+        public string AnalystName { get; set; }
 
         public LaboratoryAnalysis() { }
-        public LaboratoryAnalysis(int id, string productName, string analyst,
-                             double density, double sulfurContent, double? waterContent,
-                             double viscosity, int flashPoint, DateTime analysisDate)
+
+        // Простой конструктор для удобства
+        public LaboratoryAnalysis(int id, string productName, string analystName)
         {
-            Id = id;
+            LaboratoryAnalysisId = id;
             ProductName = productName;
-            Analyst = analyst;
-            Density = density;
-            SulfurContent = sulfurContent;
-            WaterContent = waterContent;
-            Viscosity = viscosity;
-            FlashPoint = flashPoint;
-            AnalysisDate = analysisDate;
+            AnalystName = analystName;
         }
     }
 }
