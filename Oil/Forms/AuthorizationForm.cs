@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using Oil.Management;
 
 namespace Oil
 {
@@ -116,7 +117,6 @@ namespace Oil
                 case "старший технолог":
                 case "аналитик":
                     LaboratoryForm laboratoryForm = new LaboratoryForm();
-                    laboratoryForm.Login = login; // Предполагается, что свойство Login существует
                     return laboratoryForm;
 
                 case "водитель":
