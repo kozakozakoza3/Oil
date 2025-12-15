@@ -44,13 +44,6 @@ namespace Oil
             form.Show();
         }
 
-        private void btnStorageUnits_Click(object sender, EventArgs e)
-        {
-            // Форма для работы с хранилищами
-            StorageUnitForm form = new StorageUnitForm();
-            form.Show();
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             var authForm = new AuthorizationForm();

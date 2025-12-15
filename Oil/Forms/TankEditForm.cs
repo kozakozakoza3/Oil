@@ -1,108 +1,162 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Npgsql;
 using Oil.Helpers;
+using Oil.Models;
 
 namespace Oil
 {
-    public partial class TankEditForm : Form
+    partial class TankEditForm : Form
     {
-        private int tankId = -1; // -1 = новый
+        private int _tankId = -1; // -1 = новый резервуар
+        private bool _isEditMode = false;
 
+        // КОНСТРУКТОР 1: Для добавления нового резервуара
         public TankEditForm()
         {
             InitializeComponent();
-            Text = "Новый резервуар";
+            lblTitle.Text = "Добавить резервуар";
+            Text = "Oil System - Добавление резервуара";
         }
 
-        public TankEditForm(int id)
+        // КОНСТРУКТОР 2: Для редактирования существующего резервуара
+        public TankEditForm(int tankId)
         {
             InitializeComponent();
-            tankId = id;
-            Text = "Изменение резервуара";
+            _tankId = tankId;
+            _isEditMode = true;
+            lblTitle.Text = "Редактировать резервуар";
+            Text = "Oil System - Редактирование резервуара";
         }
 
         private void TankEditForm_Load(object sender, EventArgs e)
         {
-            LoadData();
-
-            if (tankId != -1)
-            {
-                LoadTankInfo();
-            }
-        }
-
-        private void LoadData()
-        {
             try
             {
-                // Материалы
-                DataTable materials = DbMethods.GetData("SELECT tank_material_id, material_name FROM tank_material");
-                cbMaterial.DataSource = materials;
-                cbMaterial.DisplayMember = "material_name";
-                cbMaterial.ValueMember = "tank_material_id";
+                // Проверка подключения к БД
+                if (!DbMethods.TestConnection())
+                {
+                    MessageBox.Show("Нет подключения к базе данных!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
 
-                // Продукты
-                DataTable products = DbMethods.GetData("SELECT oil_product_id, product_name FROM oil_product_name");
-                cbProduct.DataSource = products;
-                cbProduct.DisplayMember = "product_name";
-                cbProduct.ValueMember = "oil_product_id";
+                // Загружаем данные в выпадающие списки
+                LoadComboBoxData();
 
-                // Хранилища
-                DataTable storage = DbMethods.GetData("SELECT storage_id, number_of_tanks FROM storage");
-                cbStorage.DataSource = storage;
-                cbStorage.DisplayMember = "number_of_tanks";
-                cbStorage.ValueMember = "storage_id";
+                // Если редактируем, загружаем данные резервуара
+                if (_isEditMode)
+                {
+                    LoadTankData();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка загрузки: " + ex.Message);
+                MessageBox.Show($"Ошибка при загрузке формы: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void LoadTankInfo()
+        private void LoadComboBoxData()
         {
             try
             {
-                string query = $"SELECT * FROM tank WHERE tank_id = {tankId}";
-                DataTable dt = DbMethods.GetData(query);
+                // 1. Загружаем нефтепродукты (можно выбрать "пусто")
+                string productQuery = @"
+                    SELECT op.oil_product_id, 
+                           opn.product_name || ' (' || m.mark_name || ')' as display_name
+                    FROM oil_product op
+                    JOIN oil_product_name opn ON op.oil_product_name_id = opn.oil_product_name_id
+                    JOIN mark m ON op.mark_id = m.mark_id
+                    ORDER BY opn.product_name";
 
+                DataTable products = DbMethods.GetData(productQuery);
+                cbxProduct.DataSource = products;
+                cbxProduct.DisplayMember = "display_name";
+                cbxProduct.ValueMember = "oil_product_id";
+
+                // 2. Загружаем хранилища
+                DataTable storage = DbMethods.GetData("SELECT storage_id, storage_id || ' (' || number_of_tanks || ' рез.)' as display_name FROM storage ORDER BY storage_id");
+                cbxStorage.DataSource = storage;
+                cbxStorage.DisplayMember = "display_name";
+                cbxStorage.ValueMember = "storage_id";
+
+                // 3. Загружаем материалы резервуаров
+                DataTable materials = DbMethods.GetData("SELECT tank_material_id, material_name FROM tank_material ORDER BY material_name");
+                cbxMaterial.DataSource = materials;
+                cbxMaterial.DisplayMember = "material_name";
+                cbxMaterial.ValueMember = "tank_material_id";
+
+                // Устанавливаем единицы измерения по умолчанию
+                txtUnitMeasure.Text = "м³";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки справочников: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadTankData()
+        {
+            try
+            {
+                string query = $@"
+                    SELECT 
+                        tank_capacity,
+                        unit_of_measure,
+                        oil_product_id,
+                        storage_id,
+                        tank_material_id
+                    FROM tank 
+                    WHERE tank_id = {_tankId}";
+
+                DataTable dt = DbMethods.GetData(query);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
 
                     txtCapacity.Text = row["tank_capacity"].ToString();
-                    txtUnit.Text = row["unit_of_measure"].ToString();
+                    txtUnitMeasure.Text = row["unit_of_measure"].ToString();
 
-                    // Простой выбор в комбобоксах
-                    SelectComboBoxValue(cbMaterial, row["tank_material_id"]);
-                    SelectComboBoxValue(cbProduct, row["oil_product_id"]);
-                    SelectComboBoxValue(cbStorage, row["storage_id"]);
+                    SetComboBoxValue(cbxProduct, row["oil_product_id"]);
+                    SetComboBoxValue(cbxStorage, row["storage_id"]);
+                    SetComboBoxValue(cbxMaterial, row["tank_material_id"]);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка загрузки: " + ex.Message);
+                MessageBox.Show($"Ошибка загрузки данных резервуара: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void SelectComboBoxValue(ComboBox cb, object value)
+        private void SetComboBoxValue(ComboBox comboBox, object value)
         {
             try
             {
-                for (int i = 0; i < cb.Items.Count; i++)
+                if (value == DBNull.Value || Convert.ToInt32(value) == 0)
                 {
-                    DataRowView item = (DataRowView)cb.Items[i];
-                    if (item.Row[0].ToString() == value.ToString())
+                    comboBox.SelectedIndex = -1;
+                    return;
+                }
+
+                for (int i = 0; i < comboBox.Items.Count; i++)
+                {
+                    DataRowView item = (DataRowView)comboBox.Items[i];
+                    if (item.Row[comboBox.ValueMember].ToString() == value.ToString())
                     {
-                        cb.SelectedIndex = i;
-                        break;
+                        comboBox.SelectedIndex = i;
+                        return;
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Игнорируем ошибки
+                MessageBox.Show($"Ошибка установки значения: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -110,64 +164,97 @@ namespace Oil
         {
             try
             {
-                // Простые проверки
-                if (txtCapacity.Text == "")
+                // Валидация
+                if (string.IsNullOrWhiteSpace(txtCapacity.Text))
                 {
-                    MessageBox.Show("Введите емкость");
+                    MessageBox.Show("Введите емкость резервуара!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCapacity.Focus();
                     return;
                 }
 
-                if (cbMaterial.SelectedIndex < 0 || cbStorage.SelectedIndex < 0)
+                if (!int.TryParse(txtCapacity.Text, out int capacity) || capacity <= 0)
                 {
-                    MessageBox.Show("Заполните все поля");
+                    MessageBox.Show("Емкость должна быть положительным числом!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCapacity.Focus();
                     return;
                 }
 
-                int capacity = Convert.ToInt32(txtCapacity.Text);
-                string unit = txtUnit.Text;
-                int materialId = Convert.ToInt32(cbMaterial.SelectedValue);
-                int storageId = Convert.ToInt32(cbStorage.SelectedValue);
-                int productId = cbProduct.SelectedIndex >= 0 ? Convert.ToInt32(cbProduct.SelectedValue) : 0;
-
-                string sql;
-                if (tankId == -1)
+                if (cbxStorage.SelectedIndex == -1 || cbxMaterial.SelectedIndex == -1)
                 {
-                    // Добавление
-                    sql = $@"
-                        INSERT INTO tank (tank_capacity, unit_of_measure, tank_material_id, storage_id, oil_product_id)
-                        VALUES ({capacity}, '{unit}', {materialId}, {storageId}, {productId})";
+                    MessageBox.Show("Выберите хранилище и материал!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int storageId = Convert.ToInt32(cbxStorage.SelectedValue);
+                int materialId = Convert.ToInt32(cbxMaterial.SelectedValue);
+                string unitMeasure = txtUnitMeasure.Text.Trim();
+
+                // Продукт может быть не выбран (NULL)
+                string productIdValue = cbxProduct.SelectedIndex == -1 ? "NULL" : Convert.ToInt32(cbxProduct.SelectedValue).ToString();
+
+                if (_isEditMode)
+                {
+                    // Обновление
+                    string updateQuery = $@"
+                        UPDATE tank SET
+                            tank_capacity = {capacity},
+                            unit_of_measure = '{unitMeasure}',
+                            oil_product_id = {productIdValue},
+                            storage_id = {storageId},
+                            tank_material_id = {materialId}
+                        WHERE tank_id = {_tankId}";
+
+                    bool success = DbMethods.Execute(updateQuery);
+                    if (success)
+                    {
+                        MessageBox.Show("Резервуар успешно обновлен!", "Успех",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    // Обновление
-                    sql = $@"
-                        UPDATE tank SET
-                            tank_capacity = {capacity},
-                            unit_of_measure = '{unit}',
-                            tank_material_id = {materialId},
-                            storage_id = {storageId},
-                            oil_product_id = {productId}
-                        WHERE tank_id = {tankId}";
-                }
+                    // Добавление
+                    string insertQuery = $@"
+                        INSERT INTO tank (
+                            tank_capacity,
+                            unit_of_measure,
+                            oil_product_id,
+                            storage_id,
+                            tank_material_id
+                        ) VALUES (
+                            {capacity},
+                            '{unitMeasure}',
+                            {productIdValue},
+                            {storageId},
+                            {materialId}
+                        )";
 
-                bool result = DbMethods.Execute(sql);
-                if (result)
-                {
-                    MessageBox.Show("Сохранено успешно");
-                    DialogResult = DialogResult.OK;
-                    Close();
+                    bool success = DbMethods.Execute(insertQuery);
+                    if (success)
+                    {
+                        MessageBox.Show("Резервуар успешно добавлен!", "Успех",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка сохранения: " + ex.Message);
+                MessageBox.Show($"Ошибка сохранения: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
+            this.Close();
         }
     }
 }

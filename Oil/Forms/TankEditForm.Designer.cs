@@ -2,20 +2,15 @@
 {
     partial class TankEditForm
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txtCapacity;
-        private TextBox txtUnit;
-        private ComboBox cbMaterial;
-        private ComboBox cbProduct;
-        private ComboBox cbStorage;
-        private Button btnSave;
-        private Button btnCancel;
 
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -25,139 +20,201 @@
             base.Dispose(disposing);
         }
 
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            lblTitle = new Label();
+            lblCapacity = new Label();
+            lblUnitMeasure = new Label();
+            lblProduct = new Label();
+            lblStorage = new Label();
+            lblMaterial = new Label();
             txtCapacity = new TextBox();
-            txtUnit = new TextBox();
-            cbMaterial = new ComboBox();
-            cbProduct = new ComboBox();
-            cbStorage = new ComboBox();
+            txtUnitMeasure = new TextBox();
+            cbxProduct = new ComboBox();
+            cbxStorage = new ComboBox();
+            cbxMaterial = new ComboBox();
             btnSave = new Button();
             btnCancel = new Button();
             SuspendLayout();
-
-            // label1 (Емкость)
-            label1.AutoSize = true;
-            label1.Location = new Point(30, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Емкость:";
-
-            // label2 (Ед. измерения)
-            label2.AutoSize = true;
-            label2.Location = new Point(200, 30);
-            label2.Name = "label2";
-            label2.Size = new Size(90, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Ед. измерения:";
-
-            // label3 (Материал)
-            label3.AutoSize = true;
-            label3.Location = new Point(30, 70);
-            label3.Name = "label3";
-            label3.Size = new Size(60, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Материал:";
-
-            // label4 (Продукт)
-            label4.AutoSize = true;
-            label4.Location = new Point(30, 110);
-            label4.Name = "label4";
-            label4.Size = new Size(55, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Продукт:";
-
-            // label5 (Хранилище)
-            label5.AutoSize = true;
-            label5.Location = new Point(30, 150);
-            label5.Name = "label5";
-            label5.Size = new Size(75, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Хранилище:";
-
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Constantia", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(120, 20);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(290, 54);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Резервуар";
+            // 
+            // lblCapacity
+            // 
+            lblCapacity.AutoSize = true;
+            lblCapacity.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblCapacity.Location = new Point(50, 100);
+            lblCapacity.Name = "lblCapacity";
+            lblCapacity.Size = new Size(86, 24);
+            lblCapacity.TabIndex = 1;
+            lblCapacity.Text = "Емкость:";
+            // 
+            // lblUnitMeasure
+            // 
+            lblUnitMeasure.AutoSize = true;
+            lblUnitMeasure.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblUnitMeasure.Location = new Point(350, 100);
+            lblUnitMeasure.Name = "lblUnitMeasure";
+            lblUnitMeasure.Size = new Size(128, 24);
+            lblUnitMeasure.TabIndex = 2;
+            lblUnitMeasure.Text = "Ед. измерения:";
+            // 
+            // lblProduct
+            // 
+            lblProduct.AutoSize = true;
+            lblProduct.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblProduct.Location = new Point(50, 150);
+            lblProduct.Name = "lblProduct";
+            lblProduct.Size = new Size(130, 24);
+            lblProduct.TabIndex = 3;
+            lblProduct.Text = "Нефтепродукт:";
+            // 
+            // lblStorage
+            // 
+            lblStorage.AutoSize = true;
+            lblStorage.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblStorage.Location = new Point(50, 200);
+            lblStorage.Name = "lblStorage";
+            lblStorage.Size = new Size(105, 24);
+            lblStorage.TabIndex = 4;
+            lblStorage.Text = "Хранилище:";
+            // 
+            // lblMaterial
+            // 
+            lblMaterial.AutoSize = true;
+            lblMaterial.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblMaterial.Location = new Point(50, 250);
+            lblMaterial.Name = "lblMaterial";
+            lblMaterial.Size = new Size(98, 24);
+            lblMaterial.TabIndex = 5;
+            lblMaterial.Text = "Материал:";
+            // 
             // txtCapacity
-            txtCapacity.Location = new Point(110, 27);
+            // 
+            txtCapacity.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            txtCapacity.Location = new Point(160, 100);
             txtCapacity.Name = "txtCapacity";
-            txtCapacity.Size = new Size(80, 23);
-            txtCapacity.TabIndex = 5;
-
-            // txtUnit
-            txtUnit.Location = new Point(300, 27);
-            txtUnit.Name = "txtUnit";
-            txtUnit.Size = new Size(80, 23);
-            txtUnit.TabIndex = 6;
-            txtUnit.Text = "м³";
-
-            // cbMaterial
-            cbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbMaterial.FormattingEnabled = true;
-            cbMaterial.Location = new Point(110, 67);
-            cbMaterial.Name = "cbMaterial";
-            cbMaterial.Size = new Size(270, 23);
-            cbMaterial.TabIndex = 7;
-
-            // cbProduct
-            cbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbProduct.FormattingEnabled = true;
-            cbProduct.Location = new Point(110, 107);
-            cbProduct.Name = "cbProduct";
-            cbProduct.Size = new Size(270, 23);
-            cbProduct.TabIndex = 8;
-
-            // cbStorage
-            cbStorage.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbStorage.FormattingEnabled = true;
-            cbStorage.Location = new Point(110, 147);
-            cbStorage.Name = "cbStorage";
-            cbStorage.Size = new Size(270, 23);
-            cbStorage.TabIndex = 9;
-
+            txtCapacity.Size = new Size(170, 28);
+            txtCapacity.TabIndex = 6;
+            // 
+            // txtUnitMeasure
+            // 
+            txtUnitMeasure.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            txtUnitMeasure.Location = new Point(490, 100);
+            txtUnitMeasure.Name = "txtUnitMeasure";
+            txtUnitMeasure.Size = new Size(100, 28);
+            txtUnitMeasure.TabIndex = 7;
+            // 
+            // cbxProduct
+            // 
+            cbxProduct.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxProduct.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            cbxProduct.FormattingEnabled = true;
+            cbxProduct.Location = new Point(190, 150);
+            cbxProduct.Name = "cbxProduct";
+            cbxProduct.Size = new Size(400, 29);
+            cbxProduct.TabIndex = 8;
+            // 
+            // cbxStorage
+            // 
+            cbxStorage.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxStorage.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            cbxStorage.FormattingEnabled = true;
+            cbxStorage.Location = new Point(190, 200);
+            cbxStorage.Name = "cbxStorage";
+            cbxStorage.Size = new Size(400, 29);
+            cbxStorage.TabIndex = 9;
+            // 
+            // cbxMaterial
+            // 
+            cbxMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxMaterial.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            cbxMaterial.FormattingEnabled = true;
+            cbxMaterial.Location = new Point(190, 250);
+            cbxMaterial.Name = "cbxMaterial";
+            cbxMaterial.Size = new Size(400, 29);
+            cbxMaterial.TabIndex = 10;
+            // 
             // btnSave
-            btnSave.Location = new Point(110, 200);
+            // 
+            btnSave.BackColor = Color.SeaGreen;
+            btnSave.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnSave.ForeColor = Color.White;
+            btnSave.Location = new Point(150, 320);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(100, 30);
-            btnSave.TabIndex = 10;
+            btnSave.Size = new Size(150, 45);
+            btnSave.TabIndex = 11;
             btnSave.Text = "Сохранить";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
-
+            // 
             // btnCancel
-            btnCancel.Location = new Point(220, 200);
+            // 
+            btnCancel.BackColor = Color.LightGray;
+            btnCancel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnCancel.Location = new Point(320, 320);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(100, 30);
-            btnCancel.TabIndex = 11;
+            btnCancel.Size = new Size(150, 45);
+            btnCancel.TabIndex = 12;
             btnCancel.Text = "Отмена";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
-
+            // 
             // TankEditForm
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 250);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(650, 400);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-            Controls.Add(cbStorage);
-            Controls.Add(cbProduct);
-            Controls.Add(cbMaterial);
-            Controls.Add(txtUnit);
+            Controls.Add(cbxMaterial);
+            Controls.Add(cbxStorage);
+            Controls.Add(cbxProduct);
+            Controls.Add(txtUnitMeasure);
             Controls.Add(txtCapacity);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblMaterial);
+            Controls.Add(lblStorage);
+            Controls.Add(lblProduct);
+            Controls.Add(lblUnitMeasure);
+            Controls.Add(lblCapacity);
+            Controls.Add(lblTitle);
             Name = "TankEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Резервуар";
+            Text = "Oil System - Резервуар";
             Load += TankEditForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
+
+        #endregion
+
+        private Label lblTitle;
+        private Label lblCapacity;
+        private Label lblUnitMeasure;
+        private Label lblProduct;
+        private Label lblStorage;
+        private Label lblMaterial;
+        private TextBox txtCapacity;
+        private TextBox txtUnitMeasure;
+        private ComboBox cbxProduct;
+        private ComboBox cbxStorage;
+        private ComboBox cbxMaterial;
+        private Button btnSave;
+        private Button btnCancel;
     }
 }

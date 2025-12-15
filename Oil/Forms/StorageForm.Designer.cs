@@ -33,7 +33,6 @@
             btnTanks = new Button();
             btnOilLots = new Button();
             btnProductLots = new Button();
-            btnStorageUnits = new Button();
             btnExit = new Button();
             SuspendLayout();
             // 
@@ -101,29 +100,15 @@
             btnProductLots.UseVisualStyleBackColor = false;
             btnProductLots.Click += btnProductLots_Click;
             // 
-            // btnStorageUnits
-            // 
-            btnStorageUnits.BackColor = Color.CadetBlue;
-            btnStorageUnits.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            btnStorageUnits.ForeColor = Color.White;
-            btnStorageUnits.Location = new Point(312, 595);
-            btnStorageUnits.Margin = new Padding(5, 5, 5, 5);
-            btnStorageUnits.Name = "btnStorageUnits";
-            btnStorageUnits.Size = new Size(663, 93);
-            btnStorageUnits.TabIndex = 4;
-            btnStorageUnits.Text = "Хранилища";
-            btnStorageUnits.UseVisualStyleBackColor = false;
-            btnStorageUnits.Click += btnStorageUnits_Click;
-            // 
             // btnExit
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(312, 720);
+            btnExit.Location = new Point(312, 600); // Изменено с 720 на 600
             btnExit.Margin = new Padding(5, 5, 5, 5);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(663, 75);
-            btnExit.TabIndex = 5;
+            btnExit.TabIndex = 4;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;
@@ -135,7 +120,6 @@
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1300, 832);
             Controls.Add(btnExit);
-            Controls.Add(btnStorageUnits);
             Controls.Add(btnProductLots);
             Controls.Add(btnOilLots);
             Controls.Add(btnTanks);
@@ -156,7 +140,6 @@
         private Button btnTanks;
         private Button btnOilLots;
         private Button btnProductLots;
-        private Button btnStorageUnits;
         private Button btnExit;
     }
 }
