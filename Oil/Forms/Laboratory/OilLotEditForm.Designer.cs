@@ -186,7 +186,7 @@
             // 
             lblViscosity.AutoSize = true;
             lblViscosity.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblViscosity.Location = new Point(525, 274);
+            lblViscosity.Location = new Point(503, 274);
             lblViscosity.Name = "lblViscosity";
             lblViscosity.Size = new Size(83, 21);
             lblViscosity.TabIndex = 13;
@@ -197,9 +197,9 @@
             cbxViscosity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxViscosity.Font = new Font("Arial", 10F);
             cbxViscosity.FormattingEnabled = true;
-            cbxViscosity.Location = new Point(625, 272);
+            cbxViscosity.Location = new Point(605, 272);
             cbxViscosity.Name = "cbxViscosity";
-            cbxViscosity.Size = new Size(150, 27);
+            cbxViscosity.Size = new Size(170, 27);
             cbxViscosity.TabIndex = 7;
             // 
             // lblSulfurContent
@@ -226,7 +226,7 @@
             // 
             lblResinContent.AutoSize = true;
             lblResinContent.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblResinContent.Location = new Point(525, 324);
+            lblResinContent.Location = new Point(503, 324);
             lblResinContent.Name = "lblResinContent";
             lblResinContent.Size = new Size(150, 21);
             lblResinContent.TabIndex = 17;
@@ -237,9 +237,9 @@
             cbxResinContent.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxResinContent.Font = new Font("Arial", 10F);
             cbxResinContent.FormattingEnabled = true;
-            cbxResinContent.Location = new Point(675, 322);
+            cbxResinContent.Location = new Point(659, 322);
             cbxResinContent.Name = "cbxResinContent";
-            cbxResinContent.Size = new Size(100, 27);
+            cbxResinContent.Size = new Size(116, 27);
             cbxResinContent.TabIndex = 9;
             // 
             // lblParaffinContent
@@ -266,7 +266,7 @@
             // 
             lblFlashPoint.AutoSize = true;
             lblFlashPoint.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblFlashPoint.Location = new Point(525, 374);
+            lblFlashPoint.Location = new Point(503, 374);
             lblFlashPoint.Name = "lblFlashPoint";
             lblFlashPoint.Size = new Size(188, 21);
             lblFlashPoint.TabIndex = 21;
