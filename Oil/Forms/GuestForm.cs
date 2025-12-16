@@ -7,8 +7,6 @@ namespace Oil
 {
     public partial class GuestForm : Form
     {
-        // Указываем вашу яндекс-почту и её пароль для приложений.
-        // Убедитесь, что пароль НЕ является основным паролем от аккаунта.
         private const string FROM_EMAIL = "hodunovaaa@yandex.ru";
         private const string FROM_PASSWORD = "yxygxvemnvmvlxnu";
         private const string TO_EMAIL = "serz.levshin@mail.ru";
@@ -54,7 +52,6 @@ namespace Oil
             catch (Exception ex)
             {
                 lblStatus.Text = "Ошибка отправки";
-                // Обновляем сообщение об ошибке для Яндекса
                 MessageBox.Show($"Ошибка: {ex.Message}\n\nПроверьте настройки:\n" +
                                 "1. Убедитесь, что в почтовом ящике Яндекса разрешен доступ для почтовых клиентов[citation:4][citation:6]\n" +
                                 "2. Убедитесь, что используется правильный пароль для приложения (не основной пароль)[citation:3][citation:6]\n" +
@@ -71,18 +68,13 @@ namespace Oil
         {
             try
             {
-                // 1. ИЗМЕНЕНИЕ: Указываем SMTP-сервер Яндекса и порт.
-                // Для Яндекса основным портом с SSL является 465[citation:4][citation:6].
-                // Альтернативный порт, начинающий соединение без шифрования, — 587[citation:6].
-                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 465); // <-- Важное изменение
+                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 465);
                 smtp.Credentials = new NetworkCredential(FROM_EMAIL, FROM_PASSWORD);
-                // 2. ИЗМЕНЕНИЕ: Для порта 465 используем EnableSsl = true[citation:4][citation:10].
                 smtp.EnableSsl = true;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.UseDefaultCredentials = false;
 
                 MailMessage mail = new MailMessage();
-                // 3. Важно: Отправитель (From) должен совпадать с почтой, указанной в Credentials.
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(TO_EMAIL);
                 mail.Subject = $"Заявка: {cmbSubject.Text}";

@@ -62,7 +62,6 @@
             dgvAnalyses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAnalyses.Size = new Size(700, 250);
             dgvAnalyses.TabIndex = 2;
-            dgvAnalyses.CellDoubleClick += dgvAnalyses_CellDoubleClick;
             // 
             // btnAdd
             // 
@@ -75,7 +74,6 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Добавить";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnEdit
             // 
@@ -88,7 +86,6 @@
             btnEdit.TabIndex = 4;
             btnEdit.Text = "Редактировать";
             btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -101,7 +98,6 @@
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Удалить";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnBack
             // 

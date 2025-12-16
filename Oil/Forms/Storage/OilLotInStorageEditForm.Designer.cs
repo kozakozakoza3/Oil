@@ -46,7 +46,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(81, 31);
+            lblTitle.Location = new Point(81, 37);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(624, 54);
             lblTitle.TabIndex = 0;
