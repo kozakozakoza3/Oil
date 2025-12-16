@@ -16,7 +16,6 @@ namespace Oil.Models
         public DateTime ManufactureDate { get; set; }
         public DateTime ExpirationDate { get; set; }
 
-        public OilProduct() { }
         public OilProduct(int id, string name, string mark, string application,
                          string dangerClass, string fraction, DateTime manufactureDate,
                          DateTime expirationDate)

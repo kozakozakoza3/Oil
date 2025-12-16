@@ -68,12 +68,6 @@ namespace Oil.Helpers
             return GetData($"SELECT * FROM {tableName}");
         }
 
-        // 5. Получить данные для ComboBox
-        public static DataTable GetList(string tableName, string idColumn, string nameColumn)
-        {
-            return GetData($"SELECT {idColumn} as id, {nameColumn} as name FROM {tableName}");
-        }
-
         // 6. Проверить подключение
         public static bool TestConnection()
         {

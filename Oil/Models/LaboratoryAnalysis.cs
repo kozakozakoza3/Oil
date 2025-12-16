@@ -26,7 +26,6 @@ namespace Oil.Models
         public string ProductName { get; set; }
         public string AnalystName { get; set; }
 
-        public LaboratoryAnalysis() { }
 
         // Простой конструктор для удобства
         public LaboratoryAnalysis(int id, string productName, string analystName)

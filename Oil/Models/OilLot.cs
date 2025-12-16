@@ -19,7 +19,6 @@ namespace Oil
         public string Oilfield { get; set; }
         public string Region { get; set; }
 
-        public OilLot() { }
         public OilLot(int id, string lotNumber, DateTime extractionDate, string color,
                       string fraction, string density, string viscosity, string sulfurContent,
                       string oilfield, string region)

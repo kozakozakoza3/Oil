@@ -41,7 +41,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(280, 50);
+            lblTitle.Location = new Point(354, 51);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(243, 35);
             lblTitle.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             lblLogin.AutoSize = true;
             lblLogin.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblLogin.Location = new Point(250, 120);
+            lblLogin.Location = new Point(134, 172);
             lblLogin.Name = "lblLogin";
             lblLogin.Size = new Size(65, 22);
             lblLogin.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblPassword.Location = new Point(250, 170);
+            lblPassword.Location = new Point(118, 222);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(81, 22);
             lblPassword.TabIndex = 2;
@@ -70,18 +70,19 @@
             // txtLogin
             // 
             txtLogin.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            txtLogin.Location = new Point(340, 117);
+            txtLogin.Location = new Point(205, 153);
+            txtLogin.Multiline = true;
             txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(200, 29);
+            txtLogin.Size = new Size(641, 46);
             txtLogin.TabIndex = 1;
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Arial", 11F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            txtPassword.Location = new Point(340, 167);
+            txtPassword.Location = new Point(205, 222);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(200, 29);
+            txtPassword.Size = new Size(641, 29);
             txtPassword.TabIndex = 2;
             // 
             // btnLogin
@@ -89,7 +90,7 @@
             btnLogin.BackColor = Color.CadetBlue;
             btnLogin.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(250, 220);
+            btnLogin.Location = new Point(324, 275);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(140, 40);
             btnLogin.TabIndex = 3;
@@ -101,7 +102,7 @@
             // 
             btnGuest.BackColor = Color.LightGray;
             btnGuest.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnGuest.Location = new Point(400, 220);
+            btnGuest.Location = new Point(474, 275);
             btnGuest.Name = "btnGuest";
             btnGuest.Size = new Size(140, 40);
             btnGuest.TabIndex = 4;
@@ -114,7 +115,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 320);
+            ClientSize = new Size(981, 573);
             Controls.Add(btnGuest);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);

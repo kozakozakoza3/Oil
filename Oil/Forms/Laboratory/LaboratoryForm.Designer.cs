@@ -39,31 +39,31 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(240, 34);
+            lblTitle.Font = new Font("Constantia", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(231, 48);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(312, 54);
+            lblTitle.Size = new Size(564, 97);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Лаборатория";
             // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblWelcome.Location = new Point(250, 100);
+            lblWelcome.Font = new Font("Constantia", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblWelcome.Location = new Point(279, 166);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(303, 24);
+            lblWelcome.Size = new Size(454, 37);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Выберите раздел для работы:";
             // 
             // btnOil
             // 
             btnOil.BackColor = Color.CadetBlue;
-            btnOil.Font = new Font("Constantia", 10.2F, FontStyle.Bold);
+            btnOil.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOil.ForeColor = Color.White;
-            btnOil.Location = new Point(192, 150);
+            btnOil.Location = new Point(124, 264);
             btnOil.Name = "btnOil";
-            btnOil.Size = new Size(408, 58);
+            btnOil.Size = new Size(770, 80);
             btnOil.TabIndex = 1;
             btnOil.Text = "Партии нефти";
             btnOil.UseVisualStyleBackColor = false;
@@ -72,11 +72,11 @@
             // btnProducts
             // 
             btnProducts.BackColor = Color.CadetBlue;
-            btnProducts.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnProducts.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(192, 224);
+            btnProducts.Location = new Point(124, 363);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(408, 58);
+            btnProducts.Size = new Size(770, 80);
             btnProducts.TabIndex = 2;
             btnProducts.Text = "Нефтепродукты";
             btnProducts.UseVisualStyleBackColor = false;
@@ -85,11 +85,11 @@
             // btnAnalysis
             // 
             btnAnalysis.BackColor = Color.CadetBlue;
-            btnAnalysis.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnAnalysis.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnAnalysis.ForeColor = Color.White;
-            btnAnalysis.Location = new Point(192, 298);
+            btnAnalysis.Location = new Point(124, 462);
             btnAnalysis.Name = "btnAnalysis";
-            btnAnalysis.Size = new Size(408, 58);
+            btnAnalysis.Size = new Size(770, 80);
             btnAnalysis.TabIndex = 3;
             btnAnalysis.Text = "Лабораторные анализы";
             btnAnalysis.UseVisualStyleBackColor = false;
@@ -98,10 +98,10 @@
             // btnExit
             // 
             btnExit.BackColor = Color.LightGray;
-            btnExit.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(192, 383);
+            btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnExit.Location = new Point(124, 598);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(408, 47);
+            btnExit.Size = new Size(770, 47);
             btnExit.TabIndex = 5;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1036, 659);
             Controls.Add(btnExit);
             Controls.Add(btnAnalysis);
             Controls.Add(btnProducts);
