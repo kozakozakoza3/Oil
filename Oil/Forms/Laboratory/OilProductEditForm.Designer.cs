@@ -50,159 +50,159 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(250, 20);
+            lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(334, 30);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(300, 36);
+            lblTitle.Size = new Size(462, 73);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Добавить нефтепродукт";
+            lblTitle.Text = "Нефтепродукт";
             // 
             // lblProductName
             // 
             lblProductName.AutoSize = true;
-            lblProductName.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblProductName.Location = new Point(50, 80);
+            lblProductName.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblProductName.Location = new Point(60, 140);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(140, 21);
+            lblProductName.Size = new Size(185, 29);
             lblProductName.TabIndex = 1;
             lblProductName.Text = "Наименование:";
             // 
             // cbxProductName
             // 
             cbxProductName.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxProductName.Font = new Font("Arial", 10F);
+            cbxProductName.Font = new Font("Arial", 12F);
             cbxProductName.FormattingEnabled = true;
-            cbxProductName.Location = new Point(200, 78);
+            cbxProductName.Location = new Point(266, 140);
             cbxProductName.Name = "cbxProductName";
-            cbxProductName.Size = new Size(550, 27);
+            cbxProductName.Size = new Size(799, 31);
             cbxProductName.TabIndex = 1;
             // 
             // lblMark
             // 
             lblMark.AutoSize = true;
-            lblMark.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblMark.Location = new Point(50, 130);
+            lblMark.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblMark.Location = new Point(60, 190);
             lblMark.Name = "lblMark";
-            lblMark.Size = new Size(70, 21);
+            lblMark.Size = new Size(91, 29);
             lblMark.TabIndex = 3;
             lblMark.Text = "Марка:";
             // 
             // cbxMark
             // 
             cbxMark.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxMark.Font = new Font("Arial", 10F);
+            cbxMark.Font = new Font("Arial", 12F);
             cbxMark.FormattingEnabled = true;
-            cbxMark.Location = new Point(200, 128);
+            cbxMark.Location = new Point(167, 190);
             cbxMark.Name = "cbxMark";
-            cbxMark.Size = new Size(550, 27);
+            cbxMark.Size = new Size(898, 31);
             cbxMark.TabIndex = 2;
             // 
             // lblApplication
             // 
             lblApplication.AutoSize = true;
-            lblApplication.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblApplication.Location = new Point(50, 180);
+            lblApplication.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblApplication.Location = new Point(60, 240);
             lblApplication.Name = "lblApplication";
-            lblApplication.Size = new Size(110, 21);
+            lblApplication.Size = new Size(161, 29);
             lblApplication.TabIndex = 5;
             lblApplication.Text = "Применение:";
             // 
             // cbxApplication
             // 
             cbxApplication.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxApplication.Font = new Font("Arial", 10F);
+            cbxApplication.Font = new Font("Arial", 12F);
             cbxApplication.FormattingEnabled = true;
-            cbxApplication.Location = new Point(200, 178);
+            cbxApplication.Location = new Point(221, 240);
             cbxApplication.Name = "cbxApplication";
-            cbxApplication.Size = new Size(550, 27);
+            cbxApplication.Size = new Size(844, 31);
             cbxApplication.TabIndex = 3;
             // 
             // lblClassOfDanger
             // 
             lblClassOfDanger.AutoSize = true;
-            lblClassOfDanger.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblClassOfDanger.Location = new Point(50, 230);
+            lblClassOfDanger.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblClassOfDanger.Location = new Point(60, 290);
             lblClassOfDanger.Name = "lblClassOfDanger";
-            lblClassOfDanger.Size = new Size(150, 21);
+            lblClassOfDanger.Size = new Size(201, 29);
             lblClassOfDanger.TabIndex = 7;
             lblClassOfDanger.Text = "Класс опасности:";
             // 
             // cbxClassOfDanger
             // 
             cbxClassOfDanger.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxClassOfDanger.Font = new Font("Arial", 10F);
+            cbxClassOfDanger.Font = new Font("Arial", 12F);
             cbxClassOfDanger.FormattingEnabled = true;
-            cbxClassOfDanger.Location = new Point(200, 228);
+            cbxClassOfDanger.Location = new Point(289, 290);
             cbxClassOfDanger.Name = "cbxClassOfDanger";
-            cbxClassOfDanger.Size = new Size(550, 27);
+            cbxClassOfDanger.Size = new Size(776, 31);
             cbxClassOfDanger.TabIndex = 4;
             // 
             // lblFraction
             // 
             lblFraction.AutoSize = true;
-            lblFraction.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblFraction.Location = new Point(50, 280);
+            lblFraction.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblFraction.Location = new Point(60, 340);
             lblFraction.Name = "lblFraction";
-            lblFraction.Size = new Size(80, 21);
+            lblFraction.Size = new Size(115, 29);
             lblFraction.TabIndex = 9;
             lblFraction.Text = "Фракция:";
             // 
             // cbxFraction
             // 
             cbxFraction.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxFraction.Font = new Font("Arial", 10F);
+            cbxFraction.Font = new Font("Arial", 12F);
             cbxFraction.FormattingEnabled = true;
-            cbxFraction.Location = new Point(200, 278);
+            cbxFraction.Location = new Point(191, 340);
             cbxFraction.Name = "cbxFraction";
-            cbxFraction.Size = new Size(550, 27);
+            cbxFraction.Size = new Size(874, 31);
             cbxFraction.TabIndex = 5;
             // 
             // lblManufactureDate
             // 
             lblManufactureDate.AutoSize = true;
-            lblManufactureDate.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblManufactureDate.Location = new Point(50, 330);
+            lblManufactureDate.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblManufactureDate.Location = new Point(60, 410);
             lblManufactureDate.Name = "lblManufactureDate";
-            lblManufactureDate.Size = new Size(170, 21);
+            lblManufactureDate.Size = new Size(226, 29);
             lblManufactureDate.TabIndex = 11;
             lblManufactureDate.Text = "Дата производства:";
             // 
             // dtpManufactureDate
             // 
-            dtpManufactureDate.Font = new Font("Arial", 10F);
+            dtpManufactureDate.Font = new Font("Arial", 12F);
             dtpManufactureDate.Format = DateTimePickerFormat.Short;
-            dtpManufactureDate.Location = new Point(230, 328);
+            dtpManufactureDate.Location = new Point(289, 410);
             dtpManufactureDate.Name = "dtpManufactureDate";
-            dtpManufactureDate.Size = new Size(200, 27);
+            dtpManufactureDate.Size = new Size(247, 30);
             dtpManufactureDate.TabIndex = 6;
             // 
             // lblExpirationDate
             // 
             lblExpirationDate.AutoSize = true;
-            lblExpirationDate.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblExpirationDate.Location = new Point(450, 330);
+            lblExpirationDate.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblExpirationDate.Location = new Point(550, 410);
             lblExpirationDate.Name = "lblExpirationDate";
-            lblExpirationDate.Size = new Size(140, 21);
+            lblExpirationDate.Size = new Size(179, 29);
             lblExpirationDate.TabIndex = 13;
             lblExpirationDate.Text = "Срок годности:";
             // 
             // dtpExpirationDate
             // 
-            dtpExpirationDate.Font = new Font("Arial", 10F);
+            dtpExpirationDate.Font = new Font("Arial", 12F);
             dtpExpirationDate.Format = DateTimePickerFormat.Short;
-            dtpExpirationDate.Location = new Point(600, 328);
+            dtpExpirationDate.Location = new Point(735, 410);
             dtpExpirationDate.Name = "dtpExpirationDate";
-            dtpExpirationDate.Size = new Size(150, 27);
+            dtpExpirationDate.Size = new Size(330, 30);
             dtpExpirationDate.TabIndex = 7;
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.SeaGreen;
-            btnSave.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnSave.BackColor = Color.CadetBlue;
+            btnSave.Font = new Font("Constantia", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(500, 400);
+            btnSave.Location = new Point(395, 470);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(120, 45);
+            btnSave.Size = new Size(180, 55);
             btnSave.TabIndex = 8;
             btnSave.Text = "Сохранить";
             btnSave.UseVisualStyleBackColor = false;
@@ -211,10 +211,10 @@
             // btnCancel
             // 
             btnCancel.BackColor = Color.LightGray;
-            btnCancel.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnCancel.Location = new Point(630, 400);
+            btnCancel.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnCancel.Location = new Point(585, 470);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(120, 45);
+            btnCancel.Size = new Size(180, 55);
             btnCancel.TabIndex = 9;
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = false;
@@ -225,7 +225,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 470);
+            ClientSize = new Size(1150, 550);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(dtpExpirationDate);
@@ -245,7 +245,7 @@
             Controls.Add(lblTitle);
             Name = "OilProductEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Oil System - Добавление нефтепродукта";
+            Text = "Oil System - Редактирование нефтепродукта";
             Load += OilProductEditForm_Load;
             ResumeLayout(false);
             PerformLayout();
