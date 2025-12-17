@@ -40,7 +40,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(231, 48);
+            lblTitle.Location = new Point(234, 48);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(564, 97);
             lblTitle.TabIndex = 0;
@@ -61,7 +61,7 @@
             btnOil.BackColor = Color.CadetBlue;
             btnOil.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnOil.ForeColor = Color.White;
-            btnOil.Location = new Point(124, 264);
+            btnOil.Location = new Point(129, 240);
             btnOil.Name = "btnOil";
             btnOil.Size = new Size(770, 80);
             btnOil.TabIndex = 1;
@@ -74,7 +74,7 @@
             btnProducts.BackColor = Color.CadetBlue;
             btnProducts.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(124, 363);
+            btnProducts.Location = new Point(129, 339);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(770, 80);
             btnProducts.TabIndex = 2;
@@ -87,7 +87,7 @@
             btnAnalysis.BackColor = Color.CadetBlue;
             btnAnalysis.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnAnalysis.ForeColor = Color.White;
-            btnAnalysis.Location = new Point(124, 462);
+            btnAnalysis.Location = new Point(129, 438);
             btnAnalysis.Name = "btnAnalysis";
             btnAnalysis.Size = new Size(770, 80);
             btnAnalysis.TabIndex = 3;
@@ -99,9 +99,9 @@
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(124, 598);
+            btnExit.Location = new Point(129, 543);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(770, 47);
+            btnExit.Size = new Size(770, 66);
             btnExit.TabIndex = 5;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;

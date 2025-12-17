@@ -41,31 +41,31 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(160, 30);
+            lblTitle.Font = new Font("Constantia", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(100, 53);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(460, 54);
+            lblTitle.Size = new Size(836, 97);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Панель руководства";
             // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblWelcome.Location = new Point(170, 100);
+            lblWelcome.Font = new Font("Constantia", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblWelcome.Location = new Point(150, 170);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(451, 24);
+            lblWelcome.Size = new Size(676, 37);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Управление системой учёта нефтепродуктов";
             // 
             // btnEmployees
             // 
             btnEmployees.BackColor = Color.CadetBlue;
-            btnEmployees.Font = new Font("Constantia", 10.2F, FontStyle.Bold);
+            btnEmployees.Font = new Font("Constantia", 13.875F, FontStyle.Bold);
             btnEmployees.ForeColor = Color.White;
-            btnEmployees.Location = new Point(100, 160);
+            btnEmployees.Location = new Point(130, 240);
             btnEmployees.Name = "btnEmployees";
-            btnEmployees.Size = new Size(250, 58);
+            btnEmployees.Size = new Size(770, 80);
             btnEmployees.TabIndex = 1;
             btnEmployees.Text = "Сотрудники";
             btnEmployees.UseVisualStyleBackColor = false;
@@ -74,11 +74,11 @@
             // btnCounterparties
             // 
             btnCounterparties.BackColor = Color.CadetBlue;
-            btnCounterparties.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnCounterparties.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnCounterparties.ForeColor = Color.White;
-            btnCounterparties.Location = new Point(100, 240);
+            btnCounterparties.Location = new Point(130, 340);
             btnCounterparties.Name = "btnCounterparties";
-            btnCounterparties.Size = new Size(250, 58);
+            btnCounterparties.Size = new Size(770, 80);
             btnCounterparties.TabIndex = 2;
             btnCounterparties.Text = "Контрагенты";
             btnCounterparties.UseVisualStyleBackColor = false;
@@ -87,11 +87,11 @@
             // btnLabReports
             // 
             btnLabReports.BackColor = Color.CadetBlue;
-            btnLabReports.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnLabReports.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnLabReports.ForeColor = Color.White;
-            btnLabReports.Location = new Point(450, 160);
+            btnLabReports.Location = new Point(130, 440);
             btnLabReports.Name = "btnLabReports";
-            btnLabReports.Size = new Size(250, 58);
+            btnLabReports.Size = new Size(770, 80);
             btnLabReports.TabIndex = 3;
             btnLabReports.Text = "Лабораторные анализы";
             btnLabReports.UseVisualStyleBackColor = false;
@@ -100,11 +100,11 @@
             // btnInvoices
             // 
             btnInvoices.BackColor = Color.CadetBlue;
-            btnInvoices.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnInvoices.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnInvoices.ForeColor = Color.White;
-            btnInvoices.Location = new Point(450, 240);
+            btnInvoices.Location = new Point(130, 540);
             btnInvoices.Name = "btnInvoices";
-            btnInvoices.Size = new Size(250, 58);
+            btnInvoices.Size = new Size(770, 80);
             btnInvoices.TabIndex = 4;
             btnInvoices.Text = "Накладные";
             btnInvoices.UseVisualStyleBackColor = false;
@@ -113,11 +113,11 @@
             // btnStorage
             // 
             btnStorage.BackColor = Color.CadetBlue;
-            btnStorage.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnStorage.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnStorage.ForeColor = Color.White;
-            btnStorage.Location = new Point(275, 320);
+            btnStorage.Location = new Point(130, 640);
             btnStorage.Name = "btnStorage";
-            btnStorage.Size = new Size(250, 58);
+            btnStorage.Size = new Size(770, 80);
             btnStorage.TabIndex = 5;
             btnStorage.Text = "Склады";
             btnStorage.UseVisualStyleBackColor = false;
@@ -126,10 +126,10 @@
             // btnExit
             // 
             btnExit.BackColor = Color.LightGray;
-            btnExit.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(275, 400);
+            btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnExit.Location = new Point(130, 740);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(250, 47);
+            btnExit.Size = new Size(770, 70);
             btnExit.TabIndex = 6;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;
@@ -140,7 +140,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 500);
+            ClientSize = new Size(1036, 850);
             Controls.Add(btnExit);
             Controls.Add(btnStorage);
             Controls.Add(btnInvoices);

@@ -39,34 +39,31 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(536, 58);
-            lblTitle.Margin = new Padding(5, 0, 5, 0);
+            lblTitle.Font = new Font("Constantia", 48F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(380, 57);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(241, 85);
+            lblTitle.Size = new Size(279, 97);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Склад";
             // 
             // lblWelcome
             // 
             lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblWelcome.Location = new Point(406, 160);
-            lblWelcome.Margin = new Padding(5, 0, 5, 0);
+            lblWelcome.Font = new Font("Constantia", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblWelcome.Location = new Point(287, 171);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(484, 39);
+            lblWelcome.Size = new Size(454, 37);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Выберите раздел для работы:";
             // 
             // btnTanks
             // 
             btnTanks.BackColor = Color.CadetBlue;
-            btnTanks.Font = new Font("Constantia", 10.2F, FontStyle.Bold);
+            btnTanks.Font = new Font("Constantia", 13.875F, FontStyle.Bold);
             btnTanks.ForeColor = Color.White;
-            btnTanks.Location = new Point(312, 240);
-            btnTanks.Margin = new Padding(5, 5, 5, 5);
+            btnTanks.Location = new Point(130, 240);
             btnTanks.Name = "btnTanks";
-            btnTanks.Size = new Size(663, 93);
+            btnTanks.Size = new Size(770, 80);
             btnTanks.TabIndex = 1;
             btnTanks.Text = "Резервуары";
             btnTanks.UseVisualStyleBackColor = false;
@@ -75,12 +72,11 @@
             // btnOilLots
             // 
             btnOilLots.BackColor = Color.CadetBlue;
-            btnOilLots.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnOilLots.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnOilLots.ForeColor = Color.White;
-            btnOilLots.Location = new Point(312, 358);
-            btnOilLots.Margin = new Padding(5, 5, 5, 5);
+            btnOilLots.Location = new Point(130, 340);
             btnOilLots.Name = "btnOilLots";
-            btnOilLots.Size = new Size(663, 93);
+            btnOilLots.Size = new Size(770, 80);
             btnOilLots.TabIndex = 2;
             btnOilLots.Text = "Партии нефти на складе";
             btnOilLots.UseVisualStyleBackColor = false;
@@ -89,12 +85,11 @@
             // btnProductLots
             // 
             btnProductLots.BackColor = Color.CadetBlue;
-            btnProductLots.Font = new Font("Constantia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnProductLots.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnProductLots.ForeColor = Color.White;
-            btnProductLots.Location = new Point(312, 477);
-            btnProductLots.Margin = new Padding(5, 5, 5, 5);
+            btnProductLots.Location = new Point(130, 440);
             btnProductLots.Name = "btnProductLots";
-            btnProductLots.Size = new Size(663, 93);
+            btnProductLots.Size = new Size(770, 80);
             btnProductLots.TabIndex = 3;
             btnProductLots.Text = "Партии нефтепродуктов на складе";
             btnProductLots.UseVisualStyleBackColor = false;
@@ -103,11 +98,10 @@
             // btnExit
             // 
             btnExit.BackColor = Color.LightGray;
-            btnExit.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(312, 600); // Изменено с 720 на 600
-            btnExit.Margin = new Padding(5, 5, 5, 5);
+            btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnExit.Location = new Point(130, 540);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(663, 75);
+            btnExit.Size = new Size(770, 70);
             btnExit.TabIndex = 4;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;
@@ -115,17 +109,16 @@
             // 
             // StorageForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1300, 832);
+            ClientSize = new Size(1036, 650);
             Controls.Add(btnExit);
             Controls.Add(btnProductLots);
             Controls.Add(btnOilLots);
             Controls.Add(btnTanks);
             Controls.Add(lblWelcome);
             Controls.Add(lblTitle);
-            Margin = new Padding(5, 5, 5, 5);
             Name = "StorageForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Oil System - Склад";

@@ -15,7 +15,6 @@ namespace Oil
         {
             InitializeComponent();
             cmbSubject.SelectedIndex = 0;
-            lblStatus.Text = "Заполните форму";
         }
 
         private void BtnSend_Click(object sender, EventArgs e)
@@ -39,11 +38,9 @@ namespace Oil
             try
             {
                 btnSend.Enabled = false;
-                lblStatus.Text = "Отправка...";
 
                 SendEmail();
 
-                lblStatus.Text = "Заявка отправлена!";
                 MessageBox.Show("Заявка успешно отправлена!", "Успех",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -51,7 +48,6 @@ namespace Oil
             }
             catch (Exception ex)
             {
-                lblStatus.Text = "Ошибка отправки";
                 MessageBox.Show($"Ошибка: {ex.Message}\n\nПроверьте настройки:\n" +
                                 "1. Убедитесь, что в почтовом ящике Яндекса разрешен доступ для почтовых клиентов[citation:4][citation:6]\n" +
                                 "2. Убедитесь, что используется правильный пароль для приложения (не основной пароль)[citation:3][citation:6]\n" +
