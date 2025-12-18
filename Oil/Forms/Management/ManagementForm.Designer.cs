@@ -34,7 +34,6 @@
             btnCounterparties = new Button();
             btnLabReports = new Button();
             btnInvoices = new Button();
-            btnStorage = new Button();
             btnExit = new Button();
             SuspendLayout();
             // 
@@ -63,7 +62,7 @@
             btnEmployees.BackColor = Color.CadetBlue;
             btnEmployees.Font = new Font("Constantia", 13.875F, FontStyle.Bold);
             btnEmployees.ForeColor = Color.White;
-            btnEmployees.Location = new Point(130, 240);
+            btnEmployees.Location = new Point(130, 280);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(770, 80);
             btnEmployees.TabIndex = 1;
@@ -76,7 +75,7 @@
             btnCounterparties.BackColor = Color.CadetBlue;
             btnCounterparties.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnCounterparties.ForeColor = Color.White;
-            btnCounterparties.Location = new Point(130, 340);
+            btnCounterparties.Location = new Point(130, 380);
             btnCounterparties.Name = "btnCounterparties";
             btnCounterparties.Size = new Size(770, 80);
             btnCounterparties.TabIndex = 2;
@@ -89,7 +88,7 @@
             btnLabReports.BackColor = Color.CadetBlue;
             btnLabReports.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnLabReports.ForeColor = Color.White;
-            btnLabReports.Location = new Point(130, 440);
+            btnLabReports.Location = new Point(130, 480);
             btnLabReports.Name = "btnLabReports";
             btnLabReports.Size = new Size(770, 80);
             btnLabReports.TabIndex = 3;
@@ -102,7 +101,7 @@
             btnInvoices.BackColor = Color.CadetBlue;
             btnInvoices.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnInvoices.ForeColor = Color.White;
-            btnInvoices.Location = new Point(130, 540);
+            btnInvoices.Location = new Point(130, 580);
             btnInvoices.Name = "btnInvoices";
             btnInvoices.Size = new Size(770, 80);
             btnInvoices.TabIndex = 4;
@@ -110,26 +109,13 @@
             btnInvoices.UseVisualStyleBackColor = false;
             btnInvoices.Click += btnInvoices_Click;
             // 
-            // btnStorage
-            // 
-            btnStorage.BackColor = Color.CadetBlue;
-            btnStorage.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            btnStorage.ForeColor = Color.White;
-            btnStorage.Location = new Point(130, 640);
-            btnStorage.Name = "btnStorage";
-            btnStorage.Size = new Size(770, 80);
-            btnStorage.TabIndex = 5;
-            btnStorage.Text = "Склады";
-            btnStorage.UseVisualStyleBackColor = false;
-            btnStorage.Click += btnStorage_Click;
-            // 
             // btnExit
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(130, 740);
+            btnExit.Location = new Point(130, 732);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(770, 70);
+            btnExit.Size = new Size(770, 78);
             btnExit.TabIndex = 6;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;
@@ -142,7 +128,6 @@
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1036, 850);
             Controls.Add(btnExit);
-            Controls.Add(btnStorage);
             Controls.Add(btnInvoices);
             Controls.Add(btnLabReports);
             Controls.Add(btnCounterparties);
@@ -164,7 +149,6 @@
         private Button btnCounterparties;
         private Button btnLabReports;
         private Button btnInvoices;
-        private Button btnStorage;
         private Button btnExit;
     }
 }

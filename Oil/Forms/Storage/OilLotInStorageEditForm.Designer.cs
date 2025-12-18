@@ -44,10 +44,11 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(162, 71);
+            lblTitle.BackColor = Color.WhiteSmoke;
+            lblTitle.Font = new Font("Constantia", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.Location = new Point(245, 83);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(843, 73);
+            lblTitle.Size = new Size(660, 58);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Партия нефти в резервуаре";
             // 
@@ -55,7 +56,7 @@
             // 
             lblOilLot.AutoSize = true;
             lblOilLot.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblOilLot.Location = new Point(83, 217);
+            lblOilLot.Location = new Point(83, 187);
             lblOilLot.Name = "lblOilLot";
             lblOilLot.Size = new Size(177, 29);
             lblOilLot.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             lblTank.AutoSize = true;
             lblTank.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblTank.Location = new Point(83, 267);
+            lblTank.Location = new Point(83, 251);
             lblTank.Name = "lblTank";
             lblTank.Size = new Size(129, 29);
             lblTank.TabIndex = 2;
@@ -96,7 +97,7 @@
             cbxOilLot.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxOilLot.Font = new Font("Arial", 12F);
             cbxOilLot.FormattingEnabled = true;
-            cbxOilLot.Location = new Point(259, 217);
+            cbxOilLot.Location = new Point(259, 187);
             cbxOilLot.Name = "cbxOilLot";
             cbxOilLot.Size = new Size(784, 31);
             cbxOilLot.TabIndex = 1;
@@ -106,7 +107,7 @@
             cbxTank.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxTank.Font = new Font("Arial", 12F);
             cbxTank.FormattingEnabled = true;
-            cbxTank.Location = new Point(227, 267);
+            cbxTank.Location = new Point(227, 251);
             cbxTank.Name = "cbxTank";
             cbxTank.Size = new Size(816, 31);
             cbxTank.TabIndex = 2;

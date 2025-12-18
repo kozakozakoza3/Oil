@@ -316,19 +316,7 @@ namespace Oil.Forms.Laboratory
             }
             catch (Exception)
             {
-                // Игнорируем ошибки при проверке
             }
-        }
-
-        // Обработчики изменения выбора в комбобоксах
-        private void cbxProductName_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CheckUniqueProduct();
-        }
-
-        private void cbxMark_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CheckUniqueProduct();
         }
     }
 }

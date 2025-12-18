@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Oil
+namespace Oil.Forms.Transport
 {
-    public partial class TransportForm : Form
+    public partial class RouteForm : Form
     {
-        public TransportForm(string login)
+        public RouteForm()
         {
             InitializeComponent();
         }

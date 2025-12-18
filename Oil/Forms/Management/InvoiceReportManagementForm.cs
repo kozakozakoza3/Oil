@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Oil.Forms.Management
 {
-    public partial class InvoiceReportForm : Form
+    public partial class InvoiceReportManagementForm : Form
     {
-        public InvoiceReportForm()
+        public InvoiceReportManagementForm()
         {
             InitializeComponent();
         }

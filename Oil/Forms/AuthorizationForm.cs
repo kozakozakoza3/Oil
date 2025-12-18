@@ -16,15 +16,33 @@ namespace Oil
     {
         private const string ConnectionString = "Host=localhost;Port=5432;Username=postgres;Password=1234567890;Database=Oil;";
 
+        public static string SavedLogin { get; set; } = "";
+        public static string SavedPassword { get; set; } = "";
+        public static string SavedEmployeeName { get; set; } = "";
+
         public AuthorizationForm()
         {
             InitializeComponent();
+
+            // Восстанавливаем сохраненный логин и пароль при загрузке формы
+            if (!string.IsNullOrEmpty(SavedLogin))
+            {
+                txtLogin.Text = SavedLogin;
+            }
+            if (!string.IsNullOrEmpty(SavedPassword))
+            {
+                txtPassword.Text = SavedPassword;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string login = txtLogin.Text;
             string password = txtPassword.Text;
+
+            // Сохраняем текущий логин и пароль в статические поля
+            SavedLogin = login;
+            SavedPassword = password;
 
             try
             {
@@ -34,12 +52,16 @@ namespace Oil
                 {
                     if (authenticationResult.roleId == 2)
                     {
+                        // Сохраняем имя сотрудника
+                        SavedEmployeeName = authenticationResult.employeeName;
+
                         Form employeeForm = GetEmployeeFormByPostSwitch(login, authenticationResult.postName, authenticationResult.employeeName);
 
                         if (employeeForm != null)
                         {
+                            // Подписываемся на событие закрытия новой формы
                             employeeForm.Show();
-                            this.Hide();
+                            this.Hide(); // Скрываем форму авторизации
                         }
                         else
                         {
@@ -48,13 +70,19 @@ namespace Oil
                     }
                     else if (authenticationResult.roleId == 3)
                     {
+                        // Сохраняем имя сотрудника
+                        SavedEmployeeName = authenticationResult.employeeName;
+
                         ManagementForm managementForm = new ManagementForm(login);
+                        // Подписываемся на событие закрытия новой формы
                         managementForm.Show();
-                        this.Hide();
+                        this.Hide(); // Скрываем форму авторизации
                     }
                 }
                 else
                 {
+                    // Очищаем имя сотрудника при неудачной авторизации
+                    SavedEmployeeName = "";
                     MessageBox.Show("Неверный логин или пароль.");
                 }
             }
@@ -93,12 +121,11 @@ namespace Oil
                     }
                 }
             }
-            return (0, string.Empty, string.Empty); // Возвращаем пустые строки вместо null
+            return (0, string.Empty, string.Empty);
         }
 
         private Form GetEmployeeFormByPostSwitch(string login, string postName, string employeeName)
         {
-            // Проверяем, что postName не null и не пустой
             if (string.IsNullOrEmpty(postName))
             {
                 return new GuestForm();
@@ -130,27 +157,31 @@ namespace Oil
                 case "оператор":
                 case "оператор установок":
                 case "оператор технологических установок":
-                    TransportForm transportForm = new TransportForm(login);
+                    TransportForm transportForm = new TransportForm();
                     return transportForm;
 
                 case "кладовщик":
                 case "старший кладовщик":
                 case "грузчик":
                 case "складской работник":
-                    StorageForm storageForm = new StorageForm(login);
+                    StorageForm storageForm = new StorageForm();
                     return storageForm;
 
                 default:
-                    GuestForm guestForm = new GuestForm();
-                    return guestForm;
+                    return new GuestForm();
             }
         }
 
         private void btnGuest_Click(object sender, EventArgs e)
         {
+            // Сохраняем текущий логин и пароль перед переходом в гостевую форму
+            SavedLogin = txtLogin.Text;
+            SavedPassword = txtPassword.Text;
+
             GuestForm guestForm = new GuestForm();
+            // Подписываемся на событие закрытия гостевой формы
             guestForm.Show();
-            this.Hide();
+            this.Hide(); // Скрываем форму авторизации
         }
     }
 }

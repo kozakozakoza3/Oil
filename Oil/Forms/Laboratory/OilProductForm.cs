@@ -212,52 +212,5 @@ namespace Oil
                 btnEdit_Click(sender, e);
             }
         }
-
-        // Метод для показа информации о выбранном нефтепродукте
-        private void ShowProductInfo(int productId)
-        {
-            try
-            {
-                string query = $@"
-                    SELECT 
-                        op.oil_product_id,
-                        opn.product_name,
-                        m.mark_name,
-                        a.application_name,
-                        cd.class_name,
-                        offr.fraction,
-                        op.manufacture_date,
-                        op.expiration_date
-                    FROM oil_product op
-                    JOIN oil_product_name opn ON op.oil_product_name_id = opn.oil_product_name_id
-                    JOIN mark m ON op.mark_id = m.mark_id
-                    JOIN application a ON op.application_id = a.application_id
-                    JOIN class_of_danger cd ON op.class_of_danger_id = cd.class_of_danger_id
-                    JOIN oil_fraction offr ON op.oil_product_fraction_id = offr.oil_fraction_id
-                    WHERE op.oil_product_id = {productId}";
-
-                DataTable dt = DbMethods.GetData(query);
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    string info = $"Информация о нефтепродукте:\n\n" +
-                                 $"Наименование: {row["product_name"]}\n" +
-                                 $"Марка: {row["mark_name"]}\n" +
-                                 $"Применение: {row["application_name"]}\n" +
-                                 $"Класс опасности: {row["class_name"]}\n" +
-                                 $"Фракция: {row["fraction"]}\n" +
-                                 $"Дата производства: {Convert.ToDateTime(row["manufacture_date"]):dd.MM.yyyy}\n" +
-                                 $"Срок годности до: {Convert.ToDateTime(row["expiration_date"]):dd.MM.yyyy}";
-
-                    MessageBox.Show(info, "Информация о нефтепродукте",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка получения информации: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

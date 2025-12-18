@@ -77,11 +77,6 @@ namespace Oil
                 cbxProduct.DisplayMember = "display_name";
                 cbxProduct.ValueMember = "oil_product_id";
 
-                // 2. Загружаем хранилища
-                DataTable storage = DbMethods.GetData("SELECT storage_id, storage_id || ' (' || number_of_tanks || ' рез.)' as display_name FROM storage ORDER BY storage_id");
-                cbxStorage.DataSource = storage;
-                cbxStorage.DisplayMember = "display_name";
-                cbxStorage.ValueMember = "storage_id";
 
                 // 3. Загружаем материалы резервуаров
                 DataTable materials = DbMethods.GetData("SELECT tank_material_id, material_name FROM tank_material ORDER BY material_name");
@@ -121,9 +116,6 @@ namespace Oil
                     txtCapacity.Text = row["tank_capacity"].ToString();
                     txtUnitMeasure.Text = row["unit_of_measure"].ToString();
 
-                    SetComboBoxValue(cbxProduct, row["oil_product_id"]);
-                    SetComboBoxValue(cbxStorage, row["storage_id"]);
-                    SetComboBoxValue(cbxMaterial, row["tank_material_id"]);
                 }
             }
             catch (Exception ex)
@@ -181,14 +173,6 @@ namespace Oil
                     return;
                 }
 
-                if (cbxStorage.SelectedIndex == -1 || cbxMaterial.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Выберите хранилище и материал!", "Ошибка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                int storageId = Convert.ToInt32(cbxStorage.SelectedValue);
                 int materialId = Convert.ToInt32(cbxMaterial.SelectedValue);
                 string unitMeasure = txtUnitMeasure.Text.Trim();
 
@@ -203,7 +187,6 @@ namespace Oil
                             tank_capacity = {capacity},
                             unit_of_measure = '{unitMeasure}',
                             oil_product_id = {productIdValue},
-                            storage_id = {storageId},
                             tank_material_id = {materialId}
                         WHERE tank_id = {_tankId}";
 
@@ -230,7 +213,6 @@ namespace Oil
                             {capacity},
                             '{unitMeasure}',
                             {productIdValue},
-                            {storageId},
                             {materialId}
                         )";
 

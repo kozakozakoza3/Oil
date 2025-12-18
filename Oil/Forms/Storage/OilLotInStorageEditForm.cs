@@ -34,7 +34,6 @@ namespace Oil
         {
             try
             {
-                // Проверка подключения к БД
                 if (!DbMethods.TestConnection())
                 {
                     MessageBox.Show("Нет подключения к базе данных!", "Ошибка",

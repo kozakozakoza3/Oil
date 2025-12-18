@@ -49,8 +49,8 @@ namespace Oil
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}\n\nПроверьте настройки:\n" +
-                                "1. Убедитесь, что в почтовом ящике Яндекса разрешен доступ для почтовых клиентов[citation:4][citation:6]\n" +
-                                "2. Убедитесь, что используется правильный пароль для приложения (не основной пароль)[citation:3][citation:6]\n" +
+                                "1. Убедитесь, что в почтовом ящике Яндекса разрешен доступ для почтовых клиентов\n" +
+                                "2. Убедитесь, что используется правильный пароль для приложения (не основной пароль)\n" +
                                 "3. Проверьте настройки брандмауэра или антивируса",
                     "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -73,7 +73,18 @@ namespace Oil
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(FROM_EMAIL);
                 mail.To.Add(TO_EMAIL);
-                mail.Subject = $"Заявка: {cmbSubject.Text}";
+
+                // Добавляем информацию о пользователе в тему письма
+                string subject = $"Заявка: {cmbSubject.Text}";
+                if (!string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName))
+                {
+                    subject += $" (от: {AuthorizationForm.SavedEmployeeName})";
+                }
+                else if (!string.IsNullOrEmpty(AuthorizationForm.SavedLogin))
+                {
+                    subject += $" (логин: {AuthorizationForm.SavedLogin})";
+                }
+                mail.Subject = subject;
 
                 string messageBody = $"Новая заявка на сотрудничество\n\n" +
                                     $"ФИО: {txtName.Text}\n" +
@@ -82,6 +93,21 @@ namespace Oil
                                     $"Тема: {cmbSubject.Text}\n\n" +
                                     $"Сообщение:\n{txtMessage.Text}\n\n" +
                                     $"Дата: {DateTime.Now:dd.MM.yyyy HH:mm}";
+
+                // Добавляем дополнительную информацию из системы если она есть
+                if (!string.IsNullOrEmpty(AuthorizationForm.SavedLogin) || !string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName))
+                {
+                    messageBody += $"\n\n--- Информация из системы ---\n";
+                    if (!string.IsNullOrEmpty(AuthorizationForm.SavedLogin))
+                    {
+                        messageBody += $"Логин в системе: {AuthorizationForm.SavedLogin}\n";
+                    }
+                    if (!string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName) &&
+                        AuthorizationForm.SavedEmployeeName != txtName.Text)
+                    {
+                        messageBody += $"ФИО из системы: {AuthorizationForm.SavedEmployeeName}\n";
+                    }
+                }
 
                 mail.Body = messageBody;
 
@@ -95,7 +121,16 @@ namespace Oil
 
         private void ClearForm()
         {
-            txtName.Clear();
+            // Очищаем поля, но сохраняем данные из системы если они есть
+            if (string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName))
+            {
+                txtName.Clear();
+            }
+            else
+            {
+                txtName.Text = AuthorizationForm.SavedEmployeeName;
+            }
+
             txtEmail.Clear();
             txtPhone.Clear();
             txtMessage.Clear();
@@ -105,7 +140,11 @@ namespace Oil
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            new AuthorizationForm().Show();
+
+            // При возврате создаем новую форму авторизации
+            // Данные уже сохранены в статических полях AuthorizationForm
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.Show();
         }
     }
 }

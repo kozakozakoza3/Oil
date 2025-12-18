@@ -9,8 +9,6 @@ namespace Oil
 {
     public partial class LaboratoryForm : Form
     {
-        public string Login { get; set; }
-
         public LaboratoryForm()
         {
             InitializeComponent();
@@ -38,7 +36,6 @@ namespace Oil
         {
             var authForm = new AuthorizationForm();
             authForm.Show();
-            this.Close();
         }
     }
 }

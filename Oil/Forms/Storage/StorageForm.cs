@@ -9,18 +9,10 @@ namespace Oil
 {
     public partial class StorageForm : Form
     {
-        public string Login { get; set; }
-
         // Конструктор по умолчанию (без параметров)
         public StorageForm()
         {
             InitializeComponent();
-        }
-
-        // Конструктор с параметром login
-        public StorageForm(string login) : this()
-        {
-            Login = login;
         }
 
         private void btnTanks_Click(object sender, EventArgs e)
