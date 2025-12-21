@@ -13,8 +13,7 @@ namespace Oil.Forms.Management
         public CounterpartyEditForm()
         {
             InitializeComponent();
-            lblTitle.Text = "Добавить контрагента";
-            Text = "Oil System - Добавление контрагента";
+            Text = "Добавление контрагента";
         }
 
         public CounterpartyEditForm(int counterpartyId)
@@ -22,8 +21,7 @@ namespace Oil.Forms.Management
             InitializeComponent();
             _counterpartyId = counterpartyId;
             _isEditMode = true;
-            lblTitle.Text = "Редактировать контрагента";
-            Text = "Oil System - Редактирование контрагента";
+            Text = "Редактирование контрагента";
         }
 
         private void CounterpartyEditForm_Load(object sender, EventArgs e)

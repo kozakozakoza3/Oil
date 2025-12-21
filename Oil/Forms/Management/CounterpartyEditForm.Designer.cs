@@ -58,9 +58,9 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(396, 20);
+            lblTitle.Location = new Point(367, 47);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(350, 73);
+            lblTitle.Size = new Size(380, 73);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Контрагент";
             // 
@@ -68,9 +68,9 @@
             // 
             lblCounterpartyType.AutoSize = true;
             lblCounterpartyType.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblCounterpartyType.Location = new Point(30, 120);
+            lblCounterpartyType.Location = new Point(30, 183);
             lblCounterpartyType.Name = "lblCounterpartyType";
-            lblCounterpartyType.Size = new Size(145, 24);
+            lblCounterpartyType.Size = new Size(171, 24);
             lblCounterpartyType.TabIndex = 1;
             lblCounterpartyType.Text = "Тип контрагента:";
             // 
@@ -79,18 +79,18 @@
             cbxCounterpartyType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxCounterpartyType.Font = new Font("Arial", 12F);
             cbxCounterpartyType.FormattingEnabled = true;
-            cbxCounterpartyType.Location = new Point(200, 113);
+            cbxCounterpartyType.Location = new Point(207, 176);
             cbxCounterpartyType.Name = "cbxCounterpartyType";
-            cbxCounterpartyType.Size = new Size(315, 31);
+            cbxCounterpartyType.Size = new Size(308, 31);
             cbxCounterpartyType.TabIndex = 1;
             // 
             // lblOKFS
             // 
             lblOKFS.AutoSize = true;
             lblOKFS.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblOKFS.Location = new Point(30, 170);
+            lblOKFS.Location = new Point(30, 495);
             lblOKFS.Name = "lblOKFS";
-            lblOKFS.Size = new Size(83, 24);
+            lblOKFS.Size = new Size(110, 24);
             lblOKFS.TabIndex = 3;
             lblOKFS.Text = "Код ОКФС:";
             // 
@@ -99,18 +99,18 @@
             cbxOKFS.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxOKFS.Font = new Font("Arial", 12F);
             cbxOKFS.FormattingEnabled = true;
-            cbxOKFS.Location = new Point(119, 163);
+            cbxOKFS.Location = new Point(150, 488);
             cbxOKFS.Name = "cbxOKFS";
-            cbxOKFS.Size = new Size(396, 31);
+            cbxOKFS.Size = new Size(365, 31);
             cbxOKFS.TabIndex = 2;
             // 
             // lblOrganization
             // 
             lblOrganization.AutoSize = true;
             lblOrganization.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblOrganization.Location = new Point(30, 220);
+            lblOrganization.Location = new Point(30, 246);
             lblOrganization.Name = "lblOrganization";
-            lblOrganization.Size = new Size(180, 24);
+            lblOrganization.Size = new Size(229, 24);
             lblOrganization.TabIndex = 5;
             lblOrganization.Text = "Название организации:";
             // 
@@ -119,16 +119,16 @@
             cbxOrganization.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxOrganization.Font = new Font("Arial", 12F);
             cbxOrganization.FormattingEnabled = true;
-            cbxOrganization.Location = new Point(216, 213);
+            cbxOrganization.Location = new Point(269, 239);
             cbxOrganization.Name = "cbxOrganization";
-            cbxOrganization.Size = new Size(299, 31);
+            cbxOrganization.Size = new Size(246, 31);
             cbxOrganization.TabIndex = 3;
             // 
             // lblPhone
             // 
             lblPhone.AutoSize = true;
             lblPhone.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblPhone.Location = new Point(614, 120);
+            lblPhone.Location = new Point(595, 176);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(93, 24);
             lblPhone.TabIndex = 7;
@@ -137,16 +137,16 @@
             // txtPhone
             // 
             txtPhone.Font = new Font("Arial", 12F);
-            txtPhone.Location = new Point(713, 113);
+            txtPhone.Location = new Point(694, 170);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(353, 30);
+            txtPhone.Size = new Size(412, 30);
             txtPhone.TabIndex = 7;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblEmail.Location = new Point(614, 170);
+            lblEmail.Location = new Point(595, 226);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(66, 24);
             lblEmail.TabIndex = 9;
@@ -155,9 +155,9 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Arial", 12F);
-            txtEmail.Location = new Point(686, 163);
+            txtEmail.Location = new Point(667, 220);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(380, 30);
+            txtEmail.Size = new Size(439, 30);
             txtEmail.TabIndex = 8;
             // 
             // btnSave
@@ -189,19 +189,19 @@
             // 
             lblINN.AutoSize = true;
             lblINN.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblINN.Location = new Point(30, 320);
+            lblINN.Location = new Point(31, 310);
             lblINN.Name = "lblINN";
-            lblINN.Size = new Size(49, 24);
+            lblINN.Size = new Size(63, 24);
             lblINN.TabIndex = 13;
             lblINN.Text = "ИНН:";
             // 
             // txtINN
             // 
             txtINN.Font = new Font("Arial", 12F);
-            txtINN.Location = new Point(85, 313);
+            txtINN.Location = new Point(100, 303);
             txtINN.MaxLength = 10;
             txtINN.Name = "txtINN";
-            txtINN.Size = new Size(430, 30);
+            txtINN.Size = new Size(416, 30);
             txtINN.TabIndex = 4;
             txtINN.KeyPress += txtINN_KeyPress;
             // 
@@ -211,17 +211,17 @@
             lblKPP.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             lblKPP.Location = new Point(30, 370);
             lblKPP.Name = "lblKPP";
-            lblKPP.Size = new Size(50, 24);
+            lblKPP.Size = new Size(58, 24);
             lblKPP.TabIndex = 15;
             lblKPP.Text = "КПП:";
             // 
             // txtKPP
             // 
             txtKPP.Font = new Font("Arial", 12F);
-            txtKPP.Location = new Point(86, 363);
+            txtKPP.Location = new Point(99, 363);
             txtKPP.MaxLength = 9;
             txtKPP.Name = "txtKPP";
-            txtKPP.Size = new Size(429, 30);
+            txtKPP.Size = new Size(416, 30);
             txtKPP.TabIndex = 5;
             txtKPP.KeyPress += txtKPP_KeyPress;
             // 
@@ -229,16 +229,16 @@
             // 
             lblOGRN.AutoSize = true;
             lblOGRN.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblOGRN.Location = new Point(30, 420);
+            lblOGRN.Location = new Point(30, 429);
             lblOGRN.Name = "lblOGRN";
-            lblOGRN.Size = new Size(64, 24);
+            lblOGRN.Size = new Size(70, 24);
             lblOGRN.TabIndex = 17;
             lblOGRN.Text = "ОГРН:";
             // 
             // txtOGRN
             // 
             txtOGRN.Font = new Font("Arial", 12F);
-            txtOGRN.Location = new Point(100, 413);
+            txtOGRN.Location = new Point(100, 422);
             txtOGRN.MaxLength = 13;
             txtOGRN.Name = "txtOGRN";
             txtOGRN.Size = new Size(415, 30);
@@ -249,39 +249,46 @@
             // 
             lblStatutoryAddress.AutoSize = true;
             lblStatutoryAddress.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblStatutoryAddress.Location = new Point(614, 220);
+            lblStatutoryAddress.Location = new Point(595, 277);
             lblStatutoryAddress.Name = "lblStatutoryAddress";
-            lblStatutoryAddress.Size = new Size(170, 24);
+            lblStatutoryAddress.Size = new Size(203, 24);
             lblStatutoryAddress.TabIndex = 19;
             lblStatutoryAddress.Text = "Юридический адрес:";
             // 
             // txtStatutoryAddress
             // 
             txtStatutoryAddress.Font = new Font("Arial", 12F);
-            txtStatutoryAddress.Location = new Point(790, 213);
+            txtStatutoryAddress.Location = new Point(595, 300);
             txtStatutoryAddress.Multiline = true;
             txtStatutoryAddress.Name = "txtStatutoryAddress";
-            txtStatutoryAddress.Size = new Size(276, 80);
+            txtStatutoryAddress.Size = new Size(511, 80);
             txtStatutoryAddress.TabIndex = 9;
             // 
             // lblPhysicalAddress
             // 
             lblPhysicalAddress.AutoSize = true;
             lblPhysicalAddress.Font = new Font("Constantia", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblPhysicalAddress.Location = new Point(614, 320);
+            lblPhysicalAddress.Location = new Point(595, 412);
             lblPhysicalAddress.Name = "lblPhysicalAddress";
-            lblPhysicalAddress.Size = new Size(157, 24);
+            lblPhysicalAddress.Size = new Size(183, 24);
             lblPhysicalAddress.TabIndex = 21;
             lblPhysicalAddress.Text = "Физический адрес:";
             // 
             // txtPhysicalAddress
             // 
             txtPhysicalAddress.Font = new Font("Arial", 12F);
-            txtPhysicalAddress.Location = new Point(790, 313);
+            txtPhysicalAddress.Location = new Point(595, 439);
             txtPhysicalAddress.Multiline = true;
             txtPhysicalAddress.Name = "txtPhysicalAddress";
-            txtPhysicalAddress.Size = new Size(276, 80);
+            txtPhysicalAddress.Size = new Size(511, 80);
             txtPhysicalAddress.TabIndex = 10;
+            // 
+            // btnNewOrganization
+            // 
+            btnNewOrganization.Location = new Point(0, 0);
+            btnNewOrganization.Name = "btnNewOrganization";
+            btnNewOrganization.Size = new Size(75, 23);
+            btnNewOrganization.TabIndex = 0;
             // 
             // CounterpartyEditForm
             // 

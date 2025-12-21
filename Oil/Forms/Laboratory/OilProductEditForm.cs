@@ -160,7 +160,7 @@ namespace Oil.Forms.Laboratory
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+       private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
@@ -193,19 +193,46 @@ namespace Oil.Forms.Laboratory
                 string manufactureDate = dtpManufactureDate.Value.ToString("yyyy-MM-dd");
                 string expirationDate = dtpExpirationDate.Value.ToString("yyyy-MM-dd");
 
+                // Проверяем существование продукта по всем полям
+                string checkQuery = $@"
+            SELECT COUNT(*) FROM oil_product 
+            WHERE oil_product_name_id = {productNameId} 
+            AND mark_id = {markId}
+            AND application_id = {applicationId}
+            AND class_of_danger_id = {classOfDangerId}
+            AND oil_product_fraction_id = {fractionId}
+            AND manufacture_date = '{manufactureDate}'
+            AND expiration_date = '{expirationDate}'";
+
+                // Если режим редактирования, исключаем текущую запись из проверки
+                if (_isEditMode)
+                {
+                    checkQuery += $" AND oil_product_id != {_oilProductId}";
+                }
+
+                DataTable dt = DbMethods.GetData(checkQuery);
+                int count = Convert.ToInt32(dt.Rows[0][0]);
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Нефтепродукт с такими характеристиками уже существует!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (_isEditMode)
                 {
                     // Обновляем существующую запись
                     string updateQuery = $@"
-                        UPDATE oil_product SET
-                            oil_product_name_id = {productNameId},
-                            mark_id = {markId},
-                            application_id = {applicationId},
-                            class_of_danger_id = {classOfDangerId},
-                            oil_product_fraction_id = {fractionId},
-                            manufacture_date = '{manufactureDate}',
-                            expiration_date = '{expirationDate}'
-                        WHERE oil_product_id = {_oilProductId}";
+                UPDATE oil_product SET
+                    oil_product_name_id = {productNameId},
+                    mark_id = {markId},
+                    application_id = {applicationId},
+                    class_of_danger_id = {classOfDangerId},
+                    oil_product_fraction_id = {fractionId},
+                    manufacture_date = '{manufactureDate}',
+                    expiration_date = '{expirationDate}'
+                WHERE oil_product_id = {_oilProductId}";
 
                     bool success = DbMethods.Execute(updateQuery);
                     if (success)
@@ -219,40 +246,24 @@ namespace Oil.Forms.Laboratory
                 else
                 {
                     // Добавляем новую запись
-                    // Проверяем, нет ли уже такого сочетания продукта и марки
-                    string checkQuery = $@"
-                        SELECT COUNT(*) FROM oil_product 
-                        WHERE oil_product_name_id = {productNameId} 
-                        AND mark_id = {markId}";
-
-                    DataTable dt = DbMethods.GetData(checkQuery);
-                    int count = Convert.ToInt32(dt.Rows[0][0]);
-
-                    if (count > 0)
-                    {
-                        MessageBox.Show("Нефтепродукт с таким наименованием и маркой уже существует!", "Ошибка",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
                     string insertQuery = $@"
-                        INSERT INTO oil_product (
-                            oil_product_name_id,
-                            mark_id,
-                            application_id,
-                            class_of_danger_id,
-                            oil_product_fraction_id,
-                            manufacture_date,
-                            expiration_date
-                        ) VALUES (
-                            {productNameId},
-                            {markId},
-                            {applicationId},
-                            {classOfDangerId},
-                            {fractionId},
-                            '{manufactureDate}',
-                            '{expirationDate}'
-                        )";
+                INSERT INTO oil_product (
+                    oil_product_name_id,
+                    mark_id,
+                    application_id,
+                    class_of_danger_id,
+                    oil_product_fraction_id,
+                    manufacture_date,
+                    expiration_date
+                ) VALUES (
+                    {productNameId},
+                    {markId},
+                    {applicationId},
+                    {classOfDangerId},
+                    {fractionId},
+                    '{manufactureDate}',
+                    '{expirationDate}'
+                )";
 
                     bool success = DbMethods.Execute(insertQuery);
                     if (success)
@@ -275,48 +286,6 @@ namespace Oil.Forms.Laboratory
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        // Проверка уникальности при изменении данных
-        private void CheckUniqueProduct()
-        {
-            try
-            {
-                if (cbxProductName.SelectedIndex != -1 && cbxMark.SelectedIndex != -1)
-                {
-                    int productNameId = Convert.ToInt32(cbxProductName.SelectedValue);
-                    int markId = Convert.ToInt32(cbxMark.SelectedValue);
-
-                    string query = $@"
-                        SELECT COUNT(*) FROM oil_product 
-                        WHERE oil_product_name_id = {productNameId} 
-                        AND mark_id = {markId}";
-
-                    // Если режим редактирования, исключаем текущую запись
-                    if (_isEditMode)
-                    {
-                        query += $" AND oil_product_id != {_oilProductId}";
-                    }
-
-                    DataTable dt = DbMethods.GetData(query);
-                    int count = Convert.ToInt32(dt.Rows[0][0]);
-
-                    if (count > 0)
-                    {
-                        // Подсвечиваем проблемные поля
-                        cbxProductName.BackColor = Color.LightPink;
-                        cbxMark.BackColor = Color.LightPink;
-                    }
-                    else
-                    {
-                        cbxProductName.BackColor = Color.White;
-                        cbxMark.BackColor = Color.White;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
         }
     }
 }

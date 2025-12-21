@@ -231,6 +231,14 @@ namespace Oil
                     return;
                 }
 
+                if (dtpExtractionDate.Value > DateTime.Now)
+                {
+                    MessageBox.Show("Дата анализа не может быть в будущем! Выберите сегодняшнюю или прошедшую дату.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpExtractionDate.Focus();
+                    return;
+                }
+
                 string lotNumber = txtLotNumber.Text.Trim();
                 string extractionDate = dtpExtractionDate.Value.ToString("yyyy-MM-dd");
                 int oilfieldId = Convert.ToInt32(cbxOilfield.SelectedValue);

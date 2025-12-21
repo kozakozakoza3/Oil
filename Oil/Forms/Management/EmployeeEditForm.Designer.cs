@@ -424,10 +424,10 @@ namespace Oil.Forms.Management
             // txtResidentialAddress
             // 
             txtResidentialAddress.Font = new Font("Arial", 12F);
-            txtResidentialAddress.Location = new Point(834, 470);
+            txtResidentialAddress.Location = new Point(819, 470);
             txtResidentialAddress.Multiline = true;
             txtResidentialAddress.Name = "txtResidentialAddress";
-            txtResidentialAddress.Size = new Size(232, 60);
+            txtResidentialAddress.Size = new Size(247, 60);
             txtResidentialAddress.TabIndex = 19;
             // 
             // lblRegistrationAddress
@@ -443,10 +443,10 @@ namespace Oil.Forms.Management
             // txtRegistrationAddress
             // 
             txtRegistrationAddress.Font = new Font("Arial", 12F);
-            txtRegistrationAddress.Location = new Point(834, 540);
+            txtRegistrationAddress.Location = new Point(819, 540);
             txtRegistrationAddress.Multiline = true;
             txtRegistrationAddress.Name = "txtRegistrationAddress";
-            txtRegistrationAddress.Size = new Size(232, 60);
+            txtRegistrationAddress.Size = new Size(247, 60);
             txtRegistrationAddress.TabIndex = 20;
             // 
             // EmployeeEditForm
@@ -454,7 +454,7 @@ namespace Oil.Forms.Management
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1150, 701);
+            ClientSize = new Size(1150, 700);
             Controls.Add(txtRegistrationAddress);
             Controls.Add(lblRegistrationAddress);
             Controls.Add(txtResidentialAddress);

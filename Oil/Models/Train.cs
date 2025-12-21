@@ -8,8 +8,6 @@
         public int LocomotiveCount { get; set; }
         public int CarriageCount { get; set; }
 
-        public Train() { }
-
         public Train(int id, string name, string status, int locomotiveCount, int carriageCount)
         {
             Id = id;

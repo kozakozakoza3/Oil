@@ -16,8 +16,6 @@ namespace Oil.Models
         public string TrainName { get; set; }
         public int TrainId { get; set; }
 
-        public Locomotive() { }
-
         public Locomotive(int id, string stateNumber, decimal tractionForce,
                          int structuralSpeed, int enginePower, string trainName, int trainId)
         {

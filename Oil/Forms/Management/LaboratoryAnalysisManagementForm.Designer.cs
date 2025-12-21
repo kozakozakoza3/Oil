@@ -1,4 +1,4 @@
-﻿namespace Oil.Forms
+﻿namespace Oil.Forms.Management
 {
     partial class LaboratoryAnalysisManagementForm
     {

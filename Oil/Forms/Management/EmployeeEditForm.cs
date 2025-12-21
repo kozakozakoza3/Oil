@@ -15,8 +15,7 @@ namespace Oil.Forms.Management
         public EmployeeEditForm()
         {
             InitializeComponent();
-            lblTitle.Text = "Добавить сотрудника";
-            Text = "Oil System - Добавление сотрудника";
+            Text = "Добавление сотрудника";
         }
 
         public EmployeeEditForm(int employeeId)
@@ -24,23 +23,8 @@ namespace Oil.Forms.Management
             InitializeComponent();
             _employeeId = employeeId;
             _isEditMode = true;
-            lblTitle.Text = "Редактировать сотрудника";
-            Text = "Oil System - Редактирование сотрудника";
-        }
-
-        // Новый конструктор для передачи объекта Employee
-        public EmployeeEditForm(Employee employee)
-        {
-            InitializeComponent();
-            if (employee != null)
-            {
-                _employeeId = employee.Employee_id;
-                _isEditMode = true;
-                lblTitle.Text = "Редактировать сотрудника";
-                Text = "Oil System - Редактирование сотрудника";
-                // Можно сохранить объект employee для заполнения формы
-            }
-        }
+            Text = "Редактирование сотрудника";
+        }   
 
         private void EmployeeEditForm_Load(object sender, EventArgs e)
         {

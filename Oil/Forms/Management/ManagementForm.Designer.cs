@@ -113,9 +113,9 @@
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(130, 732);
+            btnExit.Location = new Point(130, 711);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(770, 78);
+            btnExit.Size = new Size(770, 82);
             btnExit.TabIndex = 6;
             btnExit.Text = "Выйти";
             btnExit.UseVisualStyleBackColor = false;

@@ -39,6 +39,9 @@
             cbxMaterial = new ComboBox();
             btnSave = new Button();
             btnCancel = new Button();
+            lblStorage = new Label();
+            cbxStorage = new ComboBox();
+            lblStorageInfo = new Label();
             SuspendLayout();
             // 
             // lblTitle
@@ -85,7 +88,7 @@
             // 
             lblMaterial.AutoSize = true;
             lblMaterial.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            lblMaterial.Location = new Point(83, 363);
+            lblMaterial.Location = new Point(86, 407);
             lblMaterial.Name = "lblMaterial";
             lblMaterial.Size = new Size(129, 29);
             lblMaterial.TabIndex = 5;
@@ -122,7 +125,7 @@
             cbxMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxMaterial.Font = new Font("Arial", 12F);
             cbxMaterial.FormattingEnabled = true;
-            cbxMaterial.Location = new Point(221, 363);
+            cbxMaterial.Location = new Point(221, 407);
             cbxMaterial.Name = "cbxMaterial";
             cbxMaterial.Size = new Size(822, 31);
             cbxMaterial.TabIndex = 5;
@@ -132,10 +135,10 @@
             btnSave.BackColor = Color.CadetBlue;
             btnSave.Font = new Font("Constantia", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(384, 440);
+            btnSave.Location = new Point(384, 470);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(180, 55);
-            btnSave.TabIndex = 6;
+            btnSave.TabIndex = 7;
             btnSave.Text = "Сохранить";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
@@ -144,13 +147,45 @@
             // 
             btnCancel.BackColor = Color.LightGray;
             btnCancel.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnCancel.Location = new Point(574, 440);
+            btnCancel.Location = new Point(574, 470);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(180, 55);
-            btnCancel.TabIndex = 7;
+            btnCancel.TabIndex = 8;
             btnCancel.Text = "Отмена";
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
+            // 
+            // lblStorage
+            // 
+            lblStorage.AutoSize = true;
+            lblStorage.Font = new Font("Constantia", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            lblStorage.Location = new Point(83, 337);
+            lblStorage.Name = "lblStorage";
+            lblStorage.Size = new Size(86, 29);
+            lblStorage.TabIndex = 9;
+            lblStorage.Text = "Склад:";
+            // 
+            // cbxStorage
+            // 
+            cbxStorage.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxStorage.Font = new Font("Arial", 12F);
+            cbxStorage.FormattingEnabled = true;
+            cbxStorage.Location = new Point(221, 337);
+            cbxStorage.Name = "cbxStorage";
+            cbxStorage.Size = new Size(822, 31);
+            cbxStorage.TabIndex = 4;
+            cbxStorage.SelectedIndexChanged += cbxStorage_SelectedIndexChanged;
+            // 
+            // lblStorageInfo
+            // 
+            lblStorageInfo.AutoSize = true;
+            lblStorageInfo.Font = new Font("Arial", 10F, FontStyle.Italic, GraphicsUnit.Point, 204);
+            lblStorageInfo.ForeColor = Color.DimGray;
+            lblStorageInfo.Location = new Point(221, 371);
+            lblStorageInfo.Name = "lblStorageInfo";
+            lblStorageInfo.Size = new Size(143, 20);
+            lblStorageInfo.TabIndex = 10;
+            lblStorageInfo.Text = "Выберите склад";
             // 
             // TankEditForm
             // 
@@ -158,6 +193,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(1150, 550);
+            Controls.Add(lblStorageInfo);
+            Controls.Add(cbxStorage);
+            Controls.Add(lblStorage);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(cbxMaterial);
@@ -190,5 +228,8 @@
         private ComboBox cbxMaterial;
         private Button btnSave;
         private Button btnCancel;
+        private Label lblStorage;
+        private ComboBox cbxStorage;
+        private Label lblStorageInfo;
     }
 }

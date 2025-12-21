@@ -64,7 +64,7 @@ namespace Oil
         {
             try
             {
-                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 465);
+                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 587);
                 smtp.Credentials = new NetworkCredential(FROM_EMAIL, FROM_PASSWORD);
                 smtp.EnableSsl = true;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -93,21 +93,6 @@ namespace Oil
                                     $"Тема: {cmbSubject.Text}\n\n" +
                                     $"Сообщение:\n{txtMessage.Text}\n\n" +
                                     $"Дата: {DateTime.Now:dd.MM.yyyy HH:mm}";
-
-                // Добавляем дополнительную информацию из системы если она есть
-                if (!string.IsNullOrEmpty(AuthorizationForm.SavedLogin) || !string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName))
-                {
-                    messageBody += $"\n\n--- Информация из системы ---\n";
-                    if (!string.IsNullOrEmpty(AuthorizationForm.SavedLogin))
-                    {
-                        messageBody += $"Логин в системе: {AuthorizationForm.SavedLogin}\n";
-                    }
-                    if (!string.IsNullOrEmpty(AuthorizationForm.SavedEmployeeName) &&
-                        AuthorizationForm.SavedEmployeeName != txtName.Text)
-                    {
-                        messageBody += $"ФИО из системы: {AuthorizationForm.SavedEmployeeName}\n";
-                    }
-                }
 
                 mail.Body = messageBody;
 

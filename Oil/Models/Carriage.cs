@@ -15,8 +15,6 @@ namespace Oil.Models
         public string TrainName { get; set; }
         public int TrainId { get; set; }
 
-        public Carriage() { }
-
         public Carriage(int id, string vinNumber, string type,
                        string loadCapacity, string trainName, int trainId)
         {

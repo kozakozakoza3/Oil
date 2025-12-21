@@ -1,41 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Oil.Models
+﻿namespace Oil.Models
 {
     public class Invoice
     {
-        public int Id { get; set; }
-        public string ProductName { get; set; }
-        public string Counterparty { get; set; }
-        public string ResponsibleEmployee { get; set; }
-        public string TrainName { get; set; }
-        public string StartingPoint { get; set; }
-        public string FinalPoint { get; set; }
+        public int Invoice_id { get; set; }
+        public int Oil_product_lot_id { get; set; }
+        public int Counterparty_id { get; set; }
+        public int Employee_id { get; set; }
+        public int Train_id { get; set; }
+        public int Final_point_id { get; set; }
+        public string Starting_point { get; set; }
         public decimal Distance { get; set; }
-        public decimal LotSize { get; set; }
-        public DateTime CompilationDate { get; set; }
-        public string RouteStatus { get; set; }
-
-        public Invoice(int id, string productName, string counterparty,
-                      string responsibleEmployee, string trainName, string startingPoint,
-                      string finalPoint, decimal distance, decimal lotSize,
-                      DateTime compilationDate, string routeStatus)
-        {
-            Id = id;
-            ProductName = productName;
-            Counterparty = counterparty;
-            ResponsibleEmployee = responsibleEmployee;
-            TrainName = trainName;
-            StartingPoint = startingPoint;
-            FinalPoint = finalPoint;
-            Distance = distance;
-            LotSize = lotSize;
-            CompilationDate = compilationDate;
-            RouteStatus = routeStatus;
-        }
+        public string Unit_of_measure { get; set; }
+        public System.DateTime Date_time_compliation_invoice { get; set; }
+        public string Counterparty_name { get; set; }
+        public string Employee_name { get; set; }
+        public string Train_name { get; set; }
+        public string Destination { get; set; }
+        public string Product_name { get; set; }
+        public string Lot_size { get; set; }
+        public string Route_status { get; set; }
     }
 }

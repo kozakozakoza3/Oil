@@ -25,60 +25,6 @@ namespace Oil.Helpers
             Directory.CreateDirectory(_storagePath);
         }
 
-        // Сохранить сертификат в файл и путь в БД
-        public bool SaveCertificate(CertificatePrintData data, int laboratoryAnalysisId, int routeId)
-        {
-            try
-            {
-                // 1. Генерируем уникальное имя файла
-                string fileName = $"cert_{laboratoryAnalysisId}_{DateTime.Now:yyyyMMdd_HHmmss}.png";
-                string filePath = Path.Combine(_storagePath, fileName);
-
-                // 2. Создаем и сохраняем изображение
-                using (Bitmap certificateImage = GenerateCertificateImage(data))
-                {
-                    certificateImage.Save(filePath, ImageFormat.Png);
-                }
-
-                // 3. Сохраняем путь в БД через DbMethods
-                var parameters = new Dictionary<string, object>
-                {
-                    { "@labId", laboratoryAnalysisId },
-                    { "@routeId", routeId },
-                    { "@path", filePath }
-                };
-
-                string sql = @"
-                    INSERT INTO Laboratory_analysis_route 
-                    (Laboratory_analysis_id, Route_id, Certificate_analysis) 
-                    VALUES (@labId, @routeId, @path)
-                    ON CONFLICT (Laboratory_analysis_id, Route_id) 
-                    DO UPDATE SET Certificate_analysis = @path";
-
-                bool success = DbMethods.Execute(sql, parameters);
-
-                if (success)
-                {
-                    MessageBox.Show($"Сертификат сохранен:\n{filePath}", "Успешно",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Ошибка при сохранении в БД", "Ошибка",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                return success;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при сохранении сертификата:\n{ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        // Загрузить сертификат из БД и вернуть изображение
         public Image LoadCertificate(int laboratoryAnalysisId, int routeId)
         {
             try
@@ -131,26 +77,6 @@ namespace Oil.Helpers
                 MessageBox.Show($"Ошибка при загрузке сертификата:\n{ex.Message}", "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
-            }
-        }
-
-        // Показать сертификат в окне просмотра
-        public void ShowCertificate(CertificatePrintData data, int laboratoryAnalysisId, int routeId)
-        {
-            // Вариант 1: Загрузить существующий
-            Image certificate = LoadCertificate(laboratoryAnalysisId, routeId);
-
-            if (certificate != null)
-            {
-                ShowImageInViewer(certificate, "Просмотр сертификата");
-            }
-            else
-            {
-                // Вариант 2: Создать новый и показать
-                using (Bitmap newCertificate = GenerateCertificateImage(data))
-                {
-                    ShowImageInViewer(newCertificate, "Предварительный просмотр сертификата");
-                }
             }
         }
 
@@ -257,33 +183,7 @@ namespace Oil.Helpers
         }
 
         // Получить путь к существующему сертификату
-        public string GetCertificatePath(int laboratoryAnalysisId, int routeId)
-        {
-            var parameters = new Dictionary<string, object>
-            {
-                { "@labId", laboratoryAnalysisId },
-                { "@routeId", routeId }
-            };
-
-            string sql = @"
-                SELECT Certificate_analysis 
-                FROM Laboratory_analysis_route 
-                WHERE Laboratory_analysis_id = @labId 
-                AND Route_id = @routeId";
-
-            DataTable dt = DbMethods.GetData(sql, parameters);
-
-            if (dt.Rows.Count > 0)
-            {
-                return SafeConverter.ToString(dt.Rows[0]["Certificate_analysis"]);
-            }
-
-            return string.Empty;
-        }
-
-        #region Вспомогательные методы
-
-        // Генерация изображения сертификата
+        
         private Bitmap GenerateCertificateImage(CertificatePrintData data)
         {
             Bitmap bitmap = new Bitmap(800, 1120);
@@ -361,8 +261,6 @@ namespace Oil.Helpers
             viewerForm.Controls.Add(buttonPanel);
             viewerForm.ShowDialog();
         }
-
-        #endregion
 
         #region Методы печати (остаются без изменений)
 
@@ -507,4 +405,4 @@ namespace Oil.Helpers
         }
         #endregion
     }
-}
+} 

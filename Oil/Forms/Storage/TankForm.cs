@@ -43,7 +43,7 @@ namespace Oil
                     dgvTanks.Columns["tank_id"].Visible = false; // Скрываем ID
                     dgvTanks.Columns["capacity"].HeaderText = "Емкость";
                     dgvTanks.Columns["material_name"].HeaderText = "Материал";
-                    dgvTanks.Columns["storage_id"].HeaderText = "Хранилище";
+                    dgvTanks.Columns["storage_id"].HeaderText = "Склад";
                     dgvTanks.Columns["product_name"].HeaderText = "Нефтепродукт";
                     dgvTanks.Columns["manufacture_date"].HeaderText = "Дата производства";
                     dgvTanks.Columns["expiration_date"].HeaderText = "Срок годности";

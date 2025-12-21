@@ -28,130 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitle = new Label();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             tabControlTrains = new TabControl();
             tabPageTrains = new TabPage();
-            dgvTrains = new DataGridView();
-            panelButtons = new Panel();
-            btnRefresh = new Button();
+            panelTrainButtons = new Panel();
             btnDeleteTrain = new Button();
             btnEditTrain = new Button();
             btnAddTrain = new Button();
+            dgvTrains = new DataGridView();
+            contextMenuTrains = new ContextMenuStrip(components);
+            addToolStripMenuItem1 = new ToolStripMenuItem();
+            editToolStripMenuItem1 = new ToolStripMenuItem();
+            deleteToolStripMenuItem1 = new ToolStripMenuItem();
             tabPageLocomotives = new TabPage();
-            dgvLocomotives = new DataGridView();
             panelLocomotiveButtons = new Panel();
             btnDeleteLocomotive = new Button();
             btnEditLocomotive = new Button();
             btnAddLocomotive = new Button();
+            dgvLocomotives = new DataGridView();
+            contextMenuLocomotives = new ContextMenuStrip(components);
+            addToolStripMenuItem2 = new ToolStripMenuItem();
+            editToolStripMenuItem2 = new ToolStripMenuItem();
+            deleteToolStripMenuItem2 = new ToolStripMenuItem();
             tabPageCarriages = new TabPage();
-            dgvCarriages = new DataGridView();
             panelCarriageButtons = new Panel();
             btnDeleteCarriage = new Button();
             btnEditCarriage = new Button();
             btnAddCarriage = new Button();
-            panelBottom = new Panel();
-            btnBack = new Button();
+            dgvCarriages = new DataGridView();
+            contextMenuCarriages = new ContextMenuStrip(components);
+            addToolStripMenuItem3 = new ToolStripMenuItem();
+            editToolStripMenuItem3 = new ToolStripMenuItem();
+            deleteToolStripMenuItem3 = new ToolStripMenuItem();
             panelTop = new Panel();
+            lblTitle = new Label();
+            panelBottom = new Panel();
+            btnRefresh = new Button();
+            btnExit = new Button();
             tabControlTrains.SuspendLayout();
             tabPageTrains.SuspendLayout();
+            panelTrainButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTrains).BeginInit();
-            panelButtons.SuspendLayout();
+            contextMenuTrains.SuspendLayout();
             tabPageLocomotives.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvLocomotives).BeginInit();
             panelLocomotiveButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvLocomotives).BeginInit();
+            contextMenuLocomotives.SuspendLayout();
             tabPageCarriages.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCarriages).BeginInit();
             panelCarriageButtons.SuspendLayout();
-            panelBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCarriages).BeginInit();
+            contextMenuCarriages.SuspendLayout();
             panelTop.SuspendLayout();
+            panelBottom.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(219, 24);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(678, 73);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Управление поездами";
             // 
             // tabControlTrains
             // 
+            tabControlTrains.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControlTrains.Controls.Add(tabPageTrains);
             tabControlTrains.Controls.Add(tabPageLocomotives);
             tabControlTrains.Controls.Add(tabPageCarriages);
-            tabControlTrains.Dock = DockStyle.Fill;
-            tabControlTrains.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            tabControlTrains.Location = new Point(0, 100);
+            tabControlTrains.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            tabControlTrains.Location = new Point(12, 126);
             tabControlTrains.Name = "tabControlTrains";
             tabControlTrains.SelectedIndex = 0;
-            tabControlTrains.Size = new Size(1100, 650);
-            tabControlTrains.TabIndex = 1;
+            tabControlTrains.Size = new Size(1126, 562);
+            tabControlTrains.TabIndex = 0;
             // 
             // tabPageTrains
             // 
+            tabPageTrains.Controls.Add(panelTrainButtons);
             tabPageTrains.Controls.Add(dgvTrains);
-            tabPageTrains.Controls.Add(panelButtons);
-            tabPageTrains.Location = new Point(4, 28);
+            tabPageTrains.Location = new Point(4, 30);
             tabPageTrains.Name = "tabPageTrains";
             tabPageTrains.Padding = new Padding(3);
-            tabPageTrains.Size = new Size(1092, 618);
+            tabPageTrains.Size = new Size(1118, 528);
             tabPageTrains.TabIndex = 0;
             tabPageTrains.Text = "Поезда";
             tabPageTrains.UseVisualStyleBackColor = true;
             // 
-            // dgvTrains
+            // panelTrainButtons
             // 
-            dgvTrains.AllowUserToAddRows = false;
-            dgvTrains.AllowUserToDeleteRows = false;
-            dgvTrains.BackgroundColor = Color.White;
-            dgvTrains.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTrains.Dock = DockStyle.Fill;
-            dgvTrains.Location = new Point(3, 65);
-            dgvTrains.Name = "dgvTrains";
-            dgvTrains.ReadOnly = true;
-            dgvTrains.RowHeadersWidth = 51;
-            dgvTrains.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTrains.Size = new Size(1086, 550);
-            dgvTrains.TabIndex = 2;
-            // 
-            // panelButtons
-            // 
-            panelButtons.Controls.Add(btnRefresh);
-            panelButtons.Controls.Add(btnDeleteTrain);
-            panelButtons.Controls.Add(btnEditTrain);
-            panelButtons.Controls.Add(btnAddTrain);
-            panelButtons.Dock = DockStyle.Top;
-            panelButtons.Location = new Point(3, 3);
-            panelButtons.Name = "panelButtons";
-            panelButtons.Size = new Size(1086, 62);
-            panelButtons.TabIndex = 1;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.BackColor = Color.CadetBlue;
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.Font = new Font("Constantia", 12F, FontStyle.Bold);
-            btnRefresh.ForeColor = Color.White;
-            btnRefresh.Location = new Point(450, 10);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(150, 45);
-            btnRefresh.TabIndex = 3;
-            btnRefresh.Text = "Обновить";
-            btnRefresh.UseVisualStyleBackColor = false;
-            btnRefresh.Click += btnRefresh_Click;
+            panelTrainButtons.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panelTrainButtons.Controls.Add(btnDeleteTrain);
+            panelTrainButtons.Controls.Add(btnEditTrain);
+            panelTrainButtons.Controls.Add(btnAddTrain);
+            panelTrainButtons.Location = new Point(779, 6);
+            panelTrainButtons.Name = "panelTrainButtons";
+            panelTrainButtons.Size = new Size(333, 48);
+            panelTrainButtons.TabIndex = 1;
             // 
             // btnDeleteTrain
             // 
             btnDeleteTrain.BackColor = Color.IndianRed;
-            btnDeleteTrain.FlatStyle = FlatStyle.Flat;
-            btnDeleteTrain.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnDeleteTrain.Font = new Font("Constantia", 10.2F);
             btnDeleteTrain.ForeColor = Color.White;
-            btnDeleteTrain.Location = new Point(300, 10);
+            btnDeleteTrain.Location = new Point(238, 3);
             btnDeleteTrain.Name = "btnDeleteTrain";
-            btnDeleteTrain.Size = new Size(140, 45);
+            btnDeleteTrain.Size = new Size(95, 42);
             btnDeleteTrain.TabIndex = 2;
             btnDeleteTrain.Text = "Удалить";
             btnDeleteTrain.UseVisualStyleBackColor = false;
@@ -159,13 +136,12 @@
             // 
             // btnEditTrain
             // 
-            btnEditTrain.BackColor = Color.Goldenrod;
-            btnEditTrain.FlatStyle = FlatStyle.Flat;
-            btnEditTrain.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnEditTrain.BackColor = Color.SteelBlue;
+            btnEditTrain.Font = new Font("Constantia", 10.2F);
             btnEditTrain.ForeColor = Color.White;
-            btnEditTrain.Location = new Point(150, 10);
+            btnEditTrain.Location = new Point(101, 3);
             btnEditTrain.Name = "btnEditTrain";
-            btnEditTrain.Size = new Size(140, 45);
+            btnEditTrain.Size = new Size(137, 42);
             btnEditTrain.TabIndex = 1;
             btnEditTrain.Text = "Редактировать";
             btnEditTrain.UseVisualStyleBackColor = false;
@@ -173,263 +149,435 @@
             // 
             // btnAddTrain
             // 
-            btnAddTrain.BackColor = Color.MediumSeaGreen;
-            btnAddTrain.FlatStyle = FlatStyle.Flat;
-            btnAddTrain.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnAddTrain.BackColor = Color.SeaGreen;
+            btnAddTrain.Font = new Font("Constantia", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnAddTrain.ForeColor = Color.White;
-            btnAddTrain.Location = new Point(0, 10);
+            btnAddTrain.Location = new Point(3, 3);
             btnAddTrain.Name = "btnAddTrain";
-            btnAddTrain.Size = new Size(140, 45);
+            btnAddTrain.Size = new Size(95, 42);
             btnAddTrain.TabIndex = 0;
             btnAddTrain.Text = "Добавить";
             btnAddTrain.UseVisualStyleBackColor = false;
             btnAddTrain.Click += btnAddTrain_Click;
             // 
+            // dgvTrains
+            // 
+            dgvTrains.AllowUserToAddRows = false;
+            dgvTrains.AllowUserToDeleteRows = false;
+            dgvTrains.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTrains.BackgroundColor = Color.WhiteSmoke;
+            dgvTrains.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTrains.ContextMenuStrip = contextMenuTrains;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvTrains.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvTrains.Location = new Point(6, 60);
+            dgvTrains.Name = "dgvTrains";
+            dgvTrains.ReadOnly = true;
+            dgvTrains.RowHeadersWidth = 51;
+            dgvTrains.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTrains.Size = new Size(1106, 463);
+            dgvTrains.TabIndex = 0;
+            dgvTrains.CellDoubleClick += dgvTrains_CellDoubleClick;
+            // 
+            // contextMenuTrains
+            // 
+            contextMenuTrains.Font = new Font("Segoe UI", 9F);
+            contextMenuTrains.ImageScalingSize = new Size(20, 20);
+            contextMenuTrains.Items.AddRange(new ToolStripItem[] { addToolStripMenuItem1, editToolStripMenuItem1, deleteToolStripMenuItem1 });
+            contextMenuTrains.Name = "contextMenuTrains";
+            contextMenuTrains.Size = new Size(148, 76);
+            contextMenuTrains.Opening += contextMenuTrains_Opening;
+            // 
+            // addToolStripMenuItem1
+            // 
+            addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            addToolStripMenuItem1.Size = new Size(147, 24);
+            addToolStripMenuItem1.Text = "Добавить";
+            addToolStripMenuItem1.Click += addToolStripMenuItem1_Click;
+            // 
+            // editToolStripMenuItem1
+            // 
+            editToolStripMenuItem1.Name = "editToolStripMenuItem1";
+            editToolStripMenuItem1.Size = new Size(147, 24);
+            editToolStripMenuItem1.Text = "Изменить";
+            editToolStripMenuItem1.Click += editToolStripMenuItem1_Click;
+            // 
+            // deleteToolStripMenuItem1
+            // 
+            deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            deleteToolStripMenuItem1.Size = new Size(147, 24);
+            deleteToolStripMenuItem1.Text = "Удалить";
+            deleteToolStripMenuItem1.Click += deleteToolStripMenuItem1_Click;
+            // 
             // tabPageLocomotives
             // 
-            tabPageLocomotives.Controls.Add(dgvLocomotives);
             tabPageLocomotives.Controls.Add(panelLocomotiveButtons);
-            tabPageLocomotives.Location = new Point(4, 28);
+            tabPageLocomotives.Controls.Add(dgvLocomotives);
+            tabPageLocomotives.Location = new Point(4, 30);
             tabPageLocomotives.Name = "tabPageLocomotives";
             tabPageLocomotives.Padding = new Padding(3);
-            tabPageLocomotives.Size = new Size(1092, 618);
+            tabPageLocomotives.Size = new Size(1118, 528);
             tabPageLocomotives.TabIndex = 1;
             tabPageLocomotives.Text = "Локомотивы";
             tabPageLocomotives.UseVisualStyleBackColor = true;
             // 
-            // dgvLocomotives
-            // 
-            dgvLocomotives.AllowUserToAddRows = false;
-            dgvLocomotives.AllowUserToDeleteRows = false;
-            dgvLocomotives.BackgroundColor = Color.White;
-            dgvLocomotives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLocomotives.Dock = DockStyle.Fill;
-            dgvLocomotives.Location = new Point(3, 65);
-            dgvLocomotives.Name = "dgvLocomotives";
-            dgvLocomotives.ReadOnly = true;
-            dgvLocomotives.RowHeadersWidth = 51;
-            dgvLocomotives.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLocomotives.Size = new Size(1086, 550);
-            dgvLocomotives.TabIndex = 3;
-            // 
             // panelLocomotiveButtons
             // 
+            panelLocomotiveButtons.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelLocomotiveButtons.Controls.Add(btnDeleteLocomotive);
             panelLocomotiveButtons.Controls.Add(btnEditLocomotive);
             panelLocomotiveButtons.Controls.Add(btnAddLocomotive);
-            panelLocomotiveButtons.Dock = DockStyle.Top;
-            panelLocomotiveButtons.Location = new Point(3, 3);
+            panelLocomotiveButtons.Location = new Point(774, 6);
             panelLocomotiveButtons.Name = "panelLocomotiveButtons";
-            panelLocomotiveButtons.Size = new Size(1086, 62);
-            panelLocomotiveButtons.TabIndex = 2;
+            panelLocomotiveButtons.Size = new Size(338, 48);
+            panelLocomotiveButtons.TabIndex = 3;
             // 
             // btnDeleteLocomotive
             // 
             btnDeleteLocomotive.BackColor = Color.IndianRed;
-            btnDeleteLocomotive.FlatStyle = FlatStyle.Flat;
-            btnDeleteLocomotive.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnDeleteLocomotive.Font = new Font("Constantia", 10.2F);
             btnDeleteLocomotive.ForeColor = Color.White;
-            btnDeleteLocomotive.Location = new Point(346, 10);
+            btnDeleteLocomotive.Location = new Point(243, 3);
             btnDeleteLocomotive.Name = "btnDeleteLocomotive";
-            btnDeleteLocomotive.Size = new Size(152, 45);
-            btnDeleteLocomotive.TabIndex = 5;
+            btnDeleteLocomotive.Size = new Size(95, 42);
+            btnDeleteLocomotive.TabIndex = 2;
             btnDeleteLocomotive.Text = "Удалить";
             btnDeleteLocomotive.UseVisualStyleBackColor = false;
             btnDeleteLocomotive.Click += btnDeleteLocomotive_Click;
             // 
             // btnEditLocomotive
             // 
-            btnEditLocomotive.BackColor = Color.Goldenrod;
-            btnEditLocomotive.FlatStyle = FlatStyle.Flat;
-            btnEditLocomotive.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnEditLocomotive.BackColor = Color.SteelBlue;
+            btnEditLocomotive.Font = new Font("Constantia", 10.2F);
             btnEditLocomotive.ForeColor = Color.White;
-            btnEditLocomotive.Location = new Point(158, 10);
+            btnEditLocomotive.Location = new Point(100, 3);
             btnEditLocomotive.Name = "btnEditLocomotive";
-            btnEditLocomotive.Size = new Size(169, 45);
-            btnEditLocomotive.TabIndex = 4;
+            btnEditLocomotive.Size = new Size(144, 42);
+            btnEditLocomotive.TabIndex = 1;
             btnEditLocomotive.Text = "Редактировать";
             btnEditLocomotive.UseVisualStyleBackColor = false;
             btnEditLocomotive.Click += btnEditLocomotive_Click;
             // 
             // btnAddLocomotive
             // 
-            btnAddLocomotive.BackColor = Color.MediumSeaGreen;
-            btnAddLocomotive.FlatStyle = FlatStyle.Flat;
-            btnAddLocomotive.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnAddLocomotive.BackColor = Color.SeaGreen;
+            btnAddLocomotive.Font = new Font("Constantia", 10.2F);
             btnAddLocomotive.ForeColor = Color.White;
-            btnAddLocomotive.Location = new Point(0, 10);
+            btnAddLocomotive.Location = new Point(3, 3);
             btnAddLocomotive.Name = "btnAddLocomotive";
-            btnAddLocomotive.Size = new Size(140, 45);
-            btnAddLocomotive.TabIndex = 3;
+            btnAddLocomotive.Size = new Size(95, 42);
+            btnAddLocomotive.TabIndex = 0;
             btnAddLocomotive.Text = "Добавить";
             btnAddLocomotive.UseVisualStyleBackColor = false;
             btnAddLocomotive.Click += btnAddLocomotive_Click;
             // 
+            // dgvLocomotives
+            // 
+            dgvLocomotives.AllowUserToAddRows = false;
+            dgvLocomotives.AllowUserToDeleteRows = false;
+            dgvLocomotives.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvLocomotives.BackgroundColor = Color.WhiteSmoke;
+            dgvLocomotives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLocomotives.ContextMenuStrip = contextMenuLocomotives;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvLocomotives.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvLocomotives.Location = new Point(6, 60);
+            dgvLocomotives.Name = "dgvLocomotives";
+            dgvLocomotives.ReadOnly = true;
+            dgvLocomotives.RowHeadersWidth = 51;
+            dgvLocomotives.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLocomotives.Size = new Size(1106, 463);
+            dgvLocomotives.TabIndex = 2;
+            dgvLocomotives.CellDoubleClick += dgvLocomotives_CellDoubleClick;
+            // 
+            // contextMenuLocomotives
+            // 
+            contextMenuLocomotives.Font = new Font("Segoe UI", 9F);
+            contextMenuLocomotives.ImageScalingSize = new Size(20, 20);
+            contextMenuLocomotives.Items.AddRange(new ToolStripItem[] { addToolStripMenuItem2, editToolStripMenuItem2, deleteToolStripMenuItem2 });
+            contextMenuLocomotives.Name = "contextMenuLocomotives";
+            contextMenuLocomotives.Size = new Size(148, 76);
+            contextMenuLocomotives.Opening += contextMenuLocomotives_Opening;
+            // 
+            // addToolStripMenuItem2
+            // 
+            addToolStripMenuItem2.Name = "addToolStripMenuItem2";
+            addToolStripMenuItem2.Size = new Size(147, 24);
+            addToolStripMenuItem2.Text = "Добавить";
+            addToolStripMenuItem2.Click += addToolStripMenuItem2_Click;
+            // 
+            // editToolStripMenuItem2
+            // 
+            editToolStripMenuItem2.Name = "editToolStripMenuItem2";
+            editToolStripMenuItem2.Size = new Size(147, 24);
+            editToolStripMenuItem2.Text = "Изменить";
+            editToolStripMenuItem2.Click += editToolStripMenuItem2_Click;
+            // 
+            // deleteToolStripMenuItem2
+            // 
+            deleteToolStripMenuItem2.Name = "deleteToolStripMenuItem2";
+            deleteToolStripMenuItem2.Size = new Size(147, 24);
+            deleteToolStripMenuItem2.Text = "Удалить";
+            deleteToolStripMenuItem2.Click += deleteToolStripMenuItem2_Click;
+            // 
             // tabPageCarriages
             // 
-            tabPageCarriages.Controls.Add(dgvCarriages);
             tabPageCarriages.Controls.Add(panelCarriageButtons);
-            tabPageCarriages.Location = new Point(4, 28);
+            tabPageCarriages.Controls.Add(dgvCarriages);
+            tabPageCarriages.Location = new Point(4, 30);
             tabPageCarriages.Name = "tabPageCarriages";
-            tabPageCarriages.Size = new Size(1092, 618);
+            tabPageCarriages.Padding = new Padding(3);
+            tabPageCarriages.Size = new Size(1118, 528);
             tabPageCarriages.TabIndex = 2;
             tabPageCarriages.Text = "Вагоны";
             tabPageCarriages.UseVisualStyleBackColor = true;
             // 
-            // dgvCarriages
-            // 
-            dgvCarriages.AllowUserToAddRows = false;
-            dgvCarriages.AllowUserToDeleteRows = false;
-            dgvCarriages.BackgroundColor = Color.White;
-            dgvCarriages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCarriages.Dock = DockStyle.Fill;
-            dgvCarriages.Location = new Point(0, 65);
-            dgvCarriages.Name = "dgvCarriages";
-            dgvCarriages.ReadOnly = true;
-            dgvCarriages.RowHeadersWidth = 51;
-            dgvCarriages.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarriages.Size = new Size(1092, 553);
-            dgvCarriages.TabIndex = 4;
-            // 
             // panelCarriageButtons
             // 
+            panelCarriageButtons.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panelCarriageButtons.Controls.Add(btnDeleteCarriage);
             panelCarriageButtons.Controls.Add(btnEditCarriage);
             panelCarriageButtons.Controls.Add(btnAddCarriage);
-            panelCarriageButtons.Dock = DockStyle.Top;
-            panelCarriageButtons.Location = new Point(0, 0);
+            panelCarriageButtons.Location = new Point(776, 6);
             panelCarriageButtons.Name = "panelCarriageButtons";
-            panelCarriageButtons.Size = new Size(1092, 65);
-            panelCarriageButtons.TabIndex = 3;
+            panelCarriageButtons.Size = new Size(336, 48);
+            panelCarriageButtons.TabIndex = 5;
             // 
             // btnDeleteCarriage
             // 
             btnDeleteCarriage.BackColor = Color.IndianRed;
-            btnDeleteCarriage.FlatStyle = FlatStyle.Flat;
-            btnDeleteCarriage.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnDeleteCarriage.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnDeleteCarriage.ForeColor = Color.White;
-            btnDeleteCarriage.Location = new Point(300, 10);
+            btnDeleteCarriage.Location = new Point(239, 3);
             btnDeleteCarriage.Name = "btnDeleteCarriage";
-            btnDeleteCarriage.Size = new Size(140, 45);
-            btnDeleteCarriage.TabIndex = 8;
+            btnDeleteCarriage.Size = new Size(95, 42);
+            btnDeleteCarriage.TabIndex = 2;
             btnDeleteCarriage.Text = "Удалить";
             btnDeleteCarriage.UseVisualStyleBackColor = false;
             btnDeleteCarriage.Click += btnDeleteCarriage_Click;
             // 
             // btnEditCarriage
             // 
-            btnEditCarriage.BackColor = Color.Goldenrod;
-            btnEditCarriage.FlatStyle = FlatStyle.Flat;
-            btnEditCarriage.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnEditCarriage.BackColor = Color.SteelBlue;
+            btnEditCarriage.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnEditCarriage.ForeColor = Color.White;
-            btnEditCarriage.Location = new Point(150, 10);
+            btnEditCarriage.Location = new Point(95, 3);
             btnEditCarriage.Name = "btnEditCarriage";
-            btnEditCarriage.Size = new Size(140, 45);
-            btnEditCarriage.TabIndex = 7;
+            btnEditCarriage.Size = new Size(146, 42);
+            btnEditCarriage.TabIndex = 1;
             btnEditCarriage.Text = "Редактировать";
             btnEditCarriage.UseVisualStyleBackColor = false;
             btnEditCarriage.Click += btnEditCarriage_Click;
             // 
             // btnAddCarriage
             // 
-            btnAddCarriage.BackColor = Color.MediumSeaGreen;
-            btnAddCarriage.FlatStyle = FlatStyle.Flat;
-            btnAddCarriage.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            btnAddCarriage.BackColor = Color.SeaGreen;
+            btnAddCarriage.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnAddCarriage.ForeColor = Color.White;
-            btnAddCarriage.Location = new Point(0, 10);
+            btnAddCarriage.Location = new Point(0, 3);
             btnAddCarriage.Name = "btnAddCarriage";
-            btnAddCarriage.Size = new Size(140, 45);
-            btnAddCarriage.TabIndex = 6;
+            btnAddCarriage.Size = new Size(98, 42);
+            btnAddCarriage.TabIndex = 0;
             btnAddCarriage.Text = "Добавить";
             btnAddCarriage.UseVisualStyleBackColor = false;
             btnAddCarriage.Click += btnAddCarriage_Click;
             // 
-            // panelBottom
+            // dgvCarriages
             // 
-            panelBottom.BackColor = Color.LightSteelBlue;
-            panelBottom.Controls.Add(btnBack);
-            panelBottom.Dock = DockStyle.Bottom;
-            panelBottom.Location = new Point(0, 750);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new Size(1100, 60);
-            panelBottom.TabIndex = 2;
+            dgvCarriages.AllowUserToAddRows = false;
+            dgvCarriages.AllowUserToDeleteRows = false;
+            dgvCarriages.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCarriages.BackgroundColor = Color.WhiteSmoke;
+            dgvCarriages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCarriages.ContextMenuStrip = contextMenuCarriages;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvCarriages.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvCarriages.Location = new Point(6, 60);
+            dgvCarriages.Name = "dgvCarriages";
+            dgvCarriages.ReadOnly = true;
+            dgvCarriages.RowHeadersWidth = 51;
+            dgvCarriages.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCarriages.Size = new Size(1106, 463);
+            dgvCarriages.TabIndex = 4;
+            dgvCarriages.CellDoubleClick += dgvCarriages_CellDoubleClick;
             // 
-            // btnBack
+            // contextMenuCarriages
             // 
-            btnBack.BackColor = Color.LightGray;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnBack.Location = new Point(900, 10);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(180, 40);
-            btnBack.TabIndex = 1;
-            btnBack.Text = "Назад";
-            btnBack.UseVisualStyleBackColor = false;
+            contextMenuCarriages.Font = new Font("Segoe UI", 9F);
+            contextMenuCarriages.ImageScalingSize = new Size(20, 20);
+            contextMenuCarriages.Items.AddRange(new ToolStripItem[] { addToolStripMenuItem3, editToolStripMenuItem3, deleteToolStripMenuItem3 });
+            contextMenuCarriages.Name = "contextMenuCarriages";
+            contextMenuCarriages.Size = new Size(148, 76);
+            contextMenuCarriages.Opening += contextMenuCarriages_Opening;
+            // 
+            // addToolStripMenuItem3
+            // 
+            addToolStripMenuItem3.Name = "addToolStripMenuItem3";
+            addToolStripMenuItem3.Size = new Size(147, 24);
+            addToolStripMenuItem3.Text = "Добавить";
+            addToolStripMenuItem3.Click += addToolStripMenuItem3_Click;
+            // 
+            // editToolStripMenuItem3
+            // 
+            editToolStripMenuItem3.Name = "editToolStripMenuItem3";
+            editToolStripMenuItem3.Size = new Size(147, 24);
+            editToolStripMenuItem3.Text = "Изменить";
+            editToolStripMenuItem3.Click += editToolStripMenuItem3_Click;
+            // 
+            // deleteToolStripMenuItem3
+            // 
+            deleteToolStripMenuItem3.Name = "deleteToolStripMenuItem3";
+            deleteToolStripMenuItem3.Size = new Size(147, 24);
+            deleteToolStripMenuItem3.Text = "Удалить";
+            deleteToolStripMenuItem3.Click += deleteToolStripMenuItem3_Click;
             // 
             // panelTop
             // 
-            panelTop.BackColor = Color.CadetBlue;
+            panelTop.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelTop.BackColor = Color.SteelBlue;
             panelTop.Controls.Add(lblTitle);
-            panelTop.Dock = DockStyle.Top;
-            panelTop.Location = new Point(0, 0);
+            panelTop.Location = new Point(12, 12);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(1100, 100);
-            panelTop.TabIndex = 3;
+            panelTop.Size = new Size(1126, 108);
+            panelTop.TabIndex = 1;
+            // 
+            // lblTitle
+            // 
+            lblTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(200, 18);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(678, 73);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Управление поездами";
+            // 
+            // panelBottom
+            // 
+            panelBottom.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelBottom.BackColor = Color.LightSteelBlue;
+            panelBottom.Controls.Add(btnRefresh);
+            panelBottom.Controls.Add(btnExit);
+            panelBottom.Location = new Point(12, 694);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new Size(1126, 60);
+            panelBottom.TabIndex = 2;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefresh.BackColor = Color.SteelBlue;
+            btnRefresh.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(884, 11);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(110, 40);
+            btnRefresh.TabIndex = 6;
+            btnRefresh.Text = "Обновить";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // btnExit
+            // 
+            btnExit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExit.BackColor = Color.LightGray;
+            btnExit.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnExit.Location = new Point(1000, 11);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(110, 40);
+            btnExit.TabIndex = 7;
+            btnExit.Text = "Выход";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // TrainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1100, 810);
-            Controls.Add(tabControlTrains);
+            ClientSize = new Size(1150, 766);
             Controls.Add(panelBottom);
             Controls.Add(panelTop);
+            Controls.Add(tabControlTrains);
             Name = "TrainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Oil System - Управление поездами";
             Load += TrainForm_Load;
             tabControlTrains.ResumeLayout(false);
             tabPageTrains.ResumeLayout(false);
+            panelTrainButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvTrains).EndInit();
-            panelButtons.ResumeLayout(false);
+            contextMenuTrains.ResumeLayout(false);
             tabPageLocomotives.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvLocomotives).EndInit();
             panelLocomotiveButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvLocomotives).EndInit();
+            contextMenuLocomotives.ResumeLayout(false);
             tabPageCarriages.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvCarriages).EndInit();
             panelCarriageButtons.ResumeLayout(false);
-            panelBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCarriages).EndInit();
+            contextMenuCarriages.ResumeLayout(false);
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
+            panelBottom.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Label lblTitle;
         private TabControl tabControlTrains;
         private TabPage tabPageTrains;
         private TabPage tabPageLocomotives;
         private TabPage tabPageCarriages;
-        private Panel panelBottom;
         private Panel panelTop;
+        private Label lblTitle;
+        private Panel panelBottom;
+        private Button btnRefresh;
+        private Button btnExit;
         private DataGridView dgvTrains;
-        private Panel panelButtons;
+        private DataGridView dgvLocomotives;
+        private DataGridView dgvCarriages;
+        private Panel panelTrainButtons;
         private Button btnDeleteTrain;
         private Button btnEditTrain;
         private Button btnAddTrain;
-        private DataGridView dgvLocomotives;
         private Panel panelLocomotiveButtons;
         private Button btnDeleteLocomotive;
         private Button btnEditLocomotive;
         private Button btnAddLocomotive;
-        private DataGridView dgvCarriages;
         private Panel panelCarriageButtons;
         private Button btnDeleteCarriage;
         private Button btnEditCarriage;
         private Button btnAddCarriage;
-        private Button btnRefresh;
-        private Button btnBack;
+        private ContextMenuStrip contextMenuTrains;
+        private ToolStripMenuItem addToolStripMenuItem1;
+        private ToolStripMenuItem editToolStripMenuItem1;
+        private ToolStripMenuItem deleteToolStripMenuItem1;
+        private ContextMenuStrip contextMenuLocomotives;
+        private ToolStripMenuItem addToolStripMenuItem2;
+        private ToolStripMenuItem editToolStripMenuItem2;
+        private ToolStripMenuItem deleteToolStripMenuItem2;
+        private ContextMenuStrip contextMenuCarriages;
+        private ToolStripMenuItem addToolStripMenuItem3;
+        private ToolStripMenuItem editToolStripMenuItem3;
+        private ToolStripMenuItem deleteToolStripMenuItem3;
     }
 }

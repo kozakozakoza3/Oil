@@ -295,6 +295,18 @@ namespace Oil.Forms
                 }
             }
 
+            DateTime selectedDate = dtpDateTimeAnalysis.Value;
+            DateTime currentDate = DateTime.Now;
+
+            // Сравниваем без времени, только дату
+            if (selectedDate.Date > currentDate.Date)
+            {
+                MessageBox.Show("Дата анализа не может быть в будущем! Выберите сегодняшнюю или прошедшую дату.",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpDateTimeAnalysis.Focus();
+                return false;
+            }
+
             return true;
         }
 

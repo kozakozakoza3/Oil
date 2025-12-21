@@ -141,11 +141,11 @@
             // txtMessage
             // 
             txtMessage.Font = new Font("Arial", 12F);
-            txtMessage.Location = new Point(211, 340);
+            txtMessage.Location = new Point(60, 372);
             txtMessage.Multiline = true;
             txtMessage.Name = "txtMessage";
             txtMessage.ScrollBars = ScrollBars.Vertical;
-            txtMessage.Size = new Size(829, 200);
+            txtMessage.Size = new Size(980, 200);
             txtMessage.TabIndex = 4;
             // 
             // btnSend
@@ -153,7 +153,7 @@
             btnSend.BackColor = Color.CadetBlue;
             btnSend.Font = new Font("Constantia", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnSend.ForeColor = Color.White;
-            btnSend.Location = new Point(303, 562);
+            btnSend.Location = new Point(303, 606);
             btnSend.Name = "btnSend";
             btnSend.Size = new Size(250, 70);
             btnSend.TabIndex = 5;
@@ -165,7 +165,7 @@
             // 
             btnBack.BackColor = Color.LightGray;
             btnBack.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnBack.Location = new Point(603, 562);
+            btnBack.Location = new Point(603, 606);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(250, 70);
             btnBack.TabIndex = 6;

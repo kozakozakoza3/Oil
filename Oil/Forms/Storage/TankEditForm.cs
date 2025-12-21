@@ -43,6 +43,9 @@ namespace Oil
                     return;
                 }
 
+                // Переименовываем label
+                lblStorage.Text = "Склад:";
+
                 // Загружаем данные в выпадающие списки
                 LoadComboBoxData();
 
@@ -77,6 +80,19 @@ namespace Oil
                 cbxProduct.DisplayMember = "display_name";
                 cbxProduct.ValueMember = "oil_product_id";
 
+                // 2. Загружаем склады (хранилища)
+                string storageQuery = @"
+                    SELECT 
+                        storage_id,
+                        'Склад №' || storage_id || ' (' || number_of_tanks || ' резервуаров)' as display_name,
+                        number_of_tanks
+                    FROM storage 
+                    ORDER BY storage_id";
+
+                DataTable storages = DbMethods.GetData(storageQuery);
+                cbxStorage.DataSource = storages;
+                cbxStorage.DisplayMember = "display_name";
+                cbxStorage.ValueMember = "storage_id";
 
                 // 3. Загружаем материалы резервуаров
                 DataTable materials = DbMethods.GetData("SELECT tank_material_id, material_name FROM tank_material ORDER BY material_name");
@@ -116,6 +132,10 @@ namespace Oil
                     txtCapacity.Text = row["tank_capacity"].ToString();
                     txtUnitMeasure.Text = row["unit_of_measure"].ToString();
 
+                    // Устанавливаем значения в комбобоксы
+                    SetComboBoxValue(cbxProduct, row["oil_product_id"]);
+                    SetComboBoxValue(cbxStorage, row["storage_id"]);
+                    SetComboBoxValue(cbxMaterial, row["tank_material_id"]);
                 }
             }
             catch (Exception ex)
@@ -154,6 +174,7 @@ namespace Oil
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 // Валидация
@@ -173,11 +194,37 @@ namespace Oil
                     return;
                 }
 
+                if (cbxStorage.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Выберите склад!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbxStorage.Focus();
+                    return;
+                }
+
+                if (cbxMaterial.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Выберите материал резервуара!", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbxMaterial.Focus();
+                    return;
+                }
+
+                int storageId = Convert.ToInt32(cbxStorage.SelectedValue);
                 int materialId = Convert.ToInt32(cbxMaterial.SelectedValue);
                 string unitMeasure = txtUnitMeasure.Text.Trim();
 
                 // Продукт может быть не выбран (NULL)
                 string productIdValue = cbxProduct.SelectedIndex == -1 ? "NULL" : Convert.ToInt32(cbxProduct.SelectedValue).ToString();
+
+                // Проверка триггера: не превышено ли количество резервуаров на складе
+                if (!CheckStorageCapacity(storageId))
+                {
+                    MessageBox.Show("Превышено количество резервуаров на складе! Выберите другой склад.", "Ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbxStorage.Focus();
+                    return;
+                }
 
                 if (_isEditMode)
                 {
@@ -187,6 +234,7 @@ namespace Oil
                             tank_capacity = {capacity},
                             unit_of_measure = '{unitMeasure}',
                             oil_product_id = {productIdValue},
+                            storage_id = {storageId},
                             tank_material_id = {materialId}
                         WHERE tank_id = {_tankId}";
 
@@ -213,6 +261,7 @@ namespace Oil
                             {capacity},
                             '{unitMeasure}',
                             {productIdValue},
+                            {storageId},
                             {materialId}
                         )";
 
@@ -233,10 +282,101 @@ namespace Oil
             }
         }
 
+        private bool CheckStorageCapacity(int storageId)
+        {
+            try
+            {
+                // Проверяем, не превышено ли количество резервуаров на складе
+                string query = $@"
+                    SELECT 
+                        s.number_of_tanks,
+                        COUNT(t.tank_id) as current_tanks
+                    FROM storage s
+                    LEFT JOIN tank t ON s.storage_id = t.storage_id
+                    WHERE s.storage_id = {storageId}
+                    GROUP BY s.storage_id, s.number_of_tanks";
+
+                DataTable dt = DbMethods.GetData(query);
+                if (dt.Rows.Count > 0)
+                {
+                    int maxTanks = Convert.ToInt32(dt.Rows[0]["number_of_tanks"]);
+                    int currentTanks = Convert.ToInt32(dt.Rows[0]["current_tanks"]);
+
+                    // Если редактируем существующий резервуар на том же складе, не учитываем его в проверке
+                    if (_isEditMode)
+                    {
+                        string checkCurrentQuery = $@"
+                            SELECT storage_id 
+                            FROM tank 
+                            WHERE tank_id = {_tankId}";
+                        DataTable current = DbMethods.GetData(checkCurrentQuery);
+                        if (current.Rows.Count > 0)
+                        {
+                            int currentStorageId = Convert.ToInt32(current.Rows[0]["storage_id"]);
+                            if (currentStorageId == storageId)
+                            {
+                                // Резервуар остается на том же складе, не уменьшаем счетчик
+                                return currentTanks <= maxTanks;
+                            }
+                        }
+                    }
+
+                    // Для нового резервуара или при смене склада
+                    return currentTanks < maxTanks;
+                }
+                return true;
+            }
+            catch
+            {
+                return true; // В случае ошибки пропускаем проверку
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        // Событие для отображения информации о складе при выборе
+        private void cbxStorage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxStorage.SelectedIndex != -1 && cbxStorage.SelectedItem is DataRowView)
+            {
+                DataRowView row = (DataRowView)cbxStorage.SelectedItem;
+                int maxTanks = Convert.ToInt32(row["number_of_tanks"]);
+
+                // Подсчет текущих резервуаров на выбранном складе
+                string countQuery = $@"
+                    SELECT COUNT(*) as tank_count 
+                    FROM tank 
+                    WHERE storage_id = {row["storage_id"]}";
+
+                DataTable countDt = DbMethods.GetData(countQuery);
+                int currentTanks = countDt.Rows.Count > 0 ? Convert.ToInt32(countDt.Rows[0]["tank_count"]) : 0;
+
+                // Для редактируемого резервуара учитываем, что он уже есть на складе
+                if (_isEditMode)
+                {
+                    string checkQuery = $@"
+                        SELECT storage_id 
+                        FROM tank 
+                        WHERE tank_id = {_tankId}";
+                    DataTable current = DbMethods.GetData(checkQuery);
+                    if (current.Rows.Count > 0 &&
+                        Convert.ToInt32(current.Rows[0]["storage_id"]) == Convert.ToInt32(row["storage_id"]))
+                    {
+                        // Резервуар уже учтен в currentTanks
+                    }
+                }
+
+                int availableTanks = maxTanks - currentTanks;
+                lblStorageInfo.Text = $"Свободно резервуаров: {availableTanks} из {maxTanks}";
+            }
+            else
+            {
+                lblStorageInfo.Text = "Выберите склад";
+            }
         }
     }
 }

@@ -5,10 +5,15 @@ using System.Drawing;
 using System.Windows.Forms;
 using Oil.Models;
 
-namespace Oil.Forms
+namespace Oil.Forms.Management
 {
     public partial class LaboratoryAnalysisManagementForm : Form
     {
+        public LaboratoryAnalysisManagementForm()
+        {
+            InitializeComponent();
+        }
+
         private void LoadAnalyses()
         {
             // Простой запрос для получения данных

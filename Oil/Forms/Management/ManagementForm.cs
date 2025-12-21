@@ -29,7 +29,7 @@ namespace Oil.Management
 
         private void btnLabReports_Click(object sender, EventArgs e)
         {
-            LaboratoryAnalysisForm form = new LaboratoryAnalysisForm();
+            LaboratoryAnalysisManagementForm form = new LaboratoryAnalysisManagementForm();
             form.Show();
         }
 
