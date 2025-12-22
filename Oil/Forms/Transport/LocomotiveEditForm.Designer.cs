@@ -43,7 +43,7 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(367, 46);
+            lblTitle.Location = new Point(389, 50);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(363, 73);
             lblTitle.TabIndex = 0;
@@ -115,7 +115,7 @@
             btnSave.BackColor = Color.CadetBlue;
             btnSave.Font = new Font("Constantia", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(350, 380);
+            btnSave.Location = new Point(376, 384);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(180, 55);
             btnSave.TabIndex = 4;
@@ -127,7 +127,7 @@
             // 
             btnCancel.BackColor = Color.LightGray;
             btnCancel.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnCancel.Location = new Point(550, 380);
+            btnCancel.Location = new Point(576, 384);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(180, 55);
             btnCancel.TabIndex = 5;

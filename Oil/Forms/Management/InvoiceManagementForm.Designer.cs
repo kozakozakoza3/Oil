@@ -1,9 +1,9 @@
 ﻿using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace Oil.Forms.Transport
+namespace Oil.Forms.Management
 {
-    partial class InvoiceForm
+    partial class InvoiceManagementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,9 +33,6 @@ namespace Oil.Forms.Transport
         {
             lblTitle = new Label();
             dgvInvoices = new DataGridView();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
             btnBack = new Button();
             btnRefresh = new Button();
             btnPrint = new Button();
@@ -46,7 +43,7 @@ namespace Oil.Forms.Transport
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(51, 33);
+            lblTitle.Location = new Point(35, 29);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(1070, 73);
             lblTitle.TabIndex = 0;
@@ -66,52 +63,12 @@ namespace Oil.Forms.Transport
             dgvInvoices.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvInvoices.Size = new Size(1054, 408);
             dgvInvoices.TabIndex = 2;
-            dgvInvoices.CellDoubleClick += dgvInvoices_CellDoubleClick;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.MediumSeaGreen;
-            btnAdd.Font = new Font("Constantia", 12F, FontStyle.Bold);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(60, 540);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(136, 55);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Создать";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnEdit
-            // 
-            btnEdit.BackColor = Color.Goldenrod;
-            btnEdit.Font = new Font("Constantia", 12F, FontStyle.Bold);
-            btnEdit.ForeColor = Color.White;
-            btnEdit.Location = new Point(234, 540);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(176, 55);
-            btnEdit.TabIndex = 4;
-            btnEdit.Text = "Редактировать";
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.IndianRed;
-            btnDelete.Font = new Font("Constantia", 12F, FontStyle.Bold);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(447, 540);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(136, 55);
-            btnDelete.TabIndex = 5;
-            btnDelete.Text = "Удалить";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnBack
             // 
             btnBack.BackColor = Color.LightGray;
             btnBack.Font = new Font("Constantia", 12F, FontStyle.Bold);
-            btnBack.Location = new Point(954, 540);
+            btnBack.Location = new Point(767, 540);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(136, 55);
             btnBack.TabIndex = 7;
@@ -124,7 +81,7 @@ namespace Oil.Forms.Transport
             btnRefresh.BackColor = Color.CadetBlue;
             btnRefresh.Font = new Font("Constantia", 12F, FontStyle.Bold);
             btnRefresh.ForeColor = Color.White;
-            btnRefresh.Location = new Point(618, 540);
+            btnRefresh.Location = new Point(283, 540);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(136, 55);
             btnRefresh.TabIndex = 6;
@@ -137,7 +94,7 @@ namespace Oil.Forms.Transport
             btnPrint.BackColor = Color.SteelBlue;
             btnPrint.Font = new Font("Constantia", 12F, FontStyle.Bold);
             btnPrint.ForeColor = Color.White;
-            btnPrint.Location = new Point(786, 540);
+            btnPrint.Location = new Point(525, 540);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(136, 55);
             btnPrint.TabIndex = 8;
@@ -145,7 +102,7 @@ namespace Oil.Forms.Transport
             btnPrint.UseVisualStyleBackColor = false;
             btnPrint.Click += btnPrint_Click;
             // 
-            // InvoiceForm
+            // InvoiceManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,12 +111,9 @@ namespace Oil.Forms.Transport
             Controls.Add(btnPrint);
             Controls.Add(btnRefresh);
             Controls.Add(btnBack);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
-            Controls.Add(btnAdd);
             Controls.Add(dgvInvoices);
             Controls.Add(lblTitle);
-            Name = "InvoiceForm";
+            Name = "InvoiceManagementForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Oil System - Товарно-транспортные накладные";
             Load += InvoiceForm_Load;
@@ -172,9 +126,6 @@ namespace Oil.Forms.Transport
 
         private Label lblTitle;
         private DataGridView dgvInvoices;
-        private Button btnAdd;
-        private Button btnEdit;
-        private Button btnDelete;
         private Button btnBack;
         private Button btnRefresh;
         private Button btnPrint;

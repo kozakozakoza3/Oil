@@ -172,7 +172,7 @@
             Controls.Add(lblTitle);
             Name = "OilProductInStorageEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Oil System - Партия нефтепродукта";
+            Text = "Oil System - Редактирование партии нефтепродукта";
             Load += OilProductInStorageEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

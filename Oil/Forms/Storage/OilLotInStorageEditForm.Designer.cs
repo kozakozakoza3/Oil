@@ -172,7 +172,7 @@
             Controls.Add(lblTitle);
             Name = "OilLotInStorageEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Oil System - Партия нефти в резервуаре";
+            Text = "Oil System - Редактирование партии нефти в резервуаре";
             Load += OilLotInStorageEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

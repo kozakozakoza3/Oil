@@ -207,5 +207,15 @@ namespace Oil.Helpers
                 return false;
             }
         }
+        protected virtual NpgsqlConnection CreateConnection(string connectionString)
+        {
+            return new NpgsqlConnection(connectionString);
+        }
+
+        protected virtual NpgsqlDataAdapter CreateDataAdapter(string query, NpgsqlConnection conn)
+        {
+            return new NpgsqlDataAdapter(query, conn);
+        }
     }
 }
+       

@@ -90,7 +90,7 @@
             btnSave.BackColor = Color.CadetBlue;
             btnSave.Font = new Font("Constantia", 14F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnSave.ForeColor = Color.White;
-            btnSave.Location = new Point(350, 350);
+            btnSave.Location = new Point(388, 343);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(180, 55);
             btnSave.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             btnCancel.BackColor = Color.LightGray;
             btnCancel.Font = new Font("Arial", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnCancel.Location = new Point(550, 350);
+            btnCancel.Location = new Point(588, 343);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(180, 55);
             btnCancel.TabIndex = 4;

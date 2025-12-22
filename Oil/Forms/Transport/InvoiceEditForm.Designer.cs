@@ -382,7 +382,7 @@ namespace Oil.Forms.Transport
             Controls.Add(lblTitle);
             Name = "InvoiceEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Создание товарно-транспортной накладной";
+            Text = "Oil System - Редактирование товарно-транспортной накладной";
             Load += InvoiceEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

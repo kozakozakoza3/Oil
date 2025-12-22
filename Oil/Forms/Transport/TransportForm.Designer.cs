@@ -61,9 +61,9 @@
             btnTrains.BackColor = Color.CadetBlue;
             btnTrains.Font = new Font("Constantia", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnTrains.ForeColor = Color.White;
-            btnTrains.Location = new Point(137, 270);
+            btnTrains.Location = new Point(137, 244);
             btnTrains.Name = "btnTrains";
-            btnTrains.Size = new Size(770, 106);
+            btnTrains.Size = new Size(770, 96);
             btnTrains.TabIndex = 1;
             btnTrains.Text = "Поезда";
             btnTrains.UseVisualStyleBackColor = false;
@@ -74,9 +74,9 @@
             btnRoutes.BackColor = Color.CadetBlue;
             btnRoutes.Font = new Font("Constantia", 22.2F, FontStyle.Bold);
             btnRoutes.ForeColor = Color.White;
-            btnRoutes.Location = new Point(137, 423);
+            btnRoutes.Location = new Point(137, 372);
             btnRoutes.Name = "btnRoutes";
-            btnRoutes.Size = new Size(770, 106);
+            btnRoutes.Size = new Size(770, 96);
             btnRoutes.TabIndex = 4;
             btnRoutes.Text = "Маршруты";
             btnRoutes.UseVisualStyleBackColor = false;
@@ -87,9 +87,9 @@
             btnInvoices.BackColor = Color.CadetBlue;
             btnInvoices.Font = new Font("Constantia", 22.2F, FontStyle.Bold);
             btnInvoices.ForeColor = Color.White;
-            btnInvoices.Location = new Point(137, 570);
+            btnInvoices.Location = new Point(137, 501);
             btnInvoices.Name = "btnInvoices";
-            btnInvoices.Size = new Size(770, 106);
+            btnInvoices.Size = new Size(770, 96);
             btnInvoices.TabIndex = 5;
             btnInvoices.Text = "Накладные";
             btnInvoices.UseVisualStyleBackColor = false;
@@ -99,7 +99,7 @@
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(137, 712);
+            btnExit.Location = new Point(137, 632);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(770, 85);
             btnExit.TabIndex = 6;
@@ -112,7 +112,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1036, 821);
+            ClientSize = new Size(1036, 750);
             Controls.Add(btnExit);
             Controls.Add(btnInvoices);
             Controls.Add(btnRoutes);

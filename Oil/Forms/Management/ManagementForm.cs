@@ -35,7 +35,7 @@ namespace Oil.Management
 
         private void btnInvoices_Click(object sender, EventArgs e)
         {
-            InvoiceReportManagementForm form = new InvoiceReportManagementForm();
+            InvoiceManagementForm form = new InvoiceManagementForm();
             form.Show();
         }
 

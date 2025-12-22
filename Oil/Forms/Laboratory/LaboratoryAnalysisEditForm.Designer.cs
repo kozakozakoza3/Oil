@@ -67,11 +67,11 @@
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(159, 36);
+            lblTitle.Location = new Point(295, 43);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(861, 58);
+            lblTitle.Size = new Size(547, 58);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Добавление лабораторного анализа";
+            lblTitle.Text = "Лабораторный анализ";
             lblTitle.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblOilProduct
@@ -434,7 +434,7 @@
             Controls.Add(lblTitle);
             Name = "LaboratoryAnalysisEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Добавление лабораторного анализа";
+            Text = "Oil System - Редактирование лабораторного анализа";
             Load += LaboratoryAnalysisEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

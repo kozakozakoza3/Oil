@@ -46,11 +46,11 @@ namespace Oil.Forms.Transport
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Constantia", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblTitle.Location = new Point(320, 34);
+            lblTitle.Location = new Point(465, 48);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(542, 58);
+            lblTitle.Size = new Size(240, 58);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Добавление маршрута";
+            lblTitle.Text = "Маршрут";
             lblTitle.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblRouteStatus
@@ -156,7 +156,7 @@ namespace Oil.Forms.Transport
             Controls.Add(lblTitle);
             Name = "RouteEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Добавление маршрута";
+            Text = "Ф";
             Load += RouteEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

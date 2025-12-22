@@ -51,7 +51,7 @@
             // 
             lblWelcome.AutoSize = true;
             lblWelcome.Font = new Font("Constantia", 18F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            lblWelcome.Location = new Point(150, 170);
+            lblWelcome.Location = new Point(179, 171);
             lblWelcome.Name = "lblWelcome";
             lblWelcome.Size = new Size(676, 37);
             lblWelcome.TabIndex = 1;
@@ -62,7 +62,7 @@
             btnEmployees.BackColor = Color.CadetBlue;
             btnEmployees.Font = new Font("Constantia", 13.875F, FontStyle.Bold);
             btnEmployees.ForeColor = Color.White;
-            btnEmployees.Location = new Point(130, 280);
+            btnEmployees.Location = new Point(130, 243);
             btnEmployees.Name = "btnEmployees";
             btnEmployees.Size = new Size(770, 80);
             btnEmployees.TabIndex = 1;
@@ -75,7 +75,7 @@
             btnCounterparties.BackColor = Color.CadetBlue;
             btnCounterparties.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnCounterparties.ForeColor = Color.White;
-            btnCounterparties.Location = new Point(130, 380);
+            btnCounterparties.Location = new Point(130, 343);
             btnCounterparties.Name = "btnCounterparties";
             btnCounterparties.Size = new Size(770, 80);
             btnCounterparties.TabIndex = 2;
@@ -88,7 +88,7 @@
             btnLabReports.BackColor = Color.CadetBlue;
             btnLabReports.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnLabReports.ForeColor = Color.White;
-            btnLabReports.Location = new Point(130, 480);
+            btnLabReports.Location = new Point(130, 443);
             btnLabReports.Name = "btnLabReports";
             btnLabReports.Size = new Size(770, 80);
             btnLabReports.TabIndex = 3;
@@ -101,7 +101,7 @@
             btnInvoices.BackColor = Color.CadetBlue;
             btnInvoices.Font = new Font("Constantia", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnInvoices.ForeColor = Color.White;
-            btnInvoices.Location = new Point(130, 580);
+            btnInvoices.Location = new Point(130, 543);
             btnInvoices.Name = "btnInvoices";
             btnInvoices.Size = new Size(770, 80);
             btnInvoices.TabIndex = 4;
@@ -113,7 +113,7 @@
             // 
             btnExit.BackColor = Color.LightGray;
             btnExit.Font = new Font("Arial", 13.875F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            btnExit.Location = new Point(130, 711);
+            btnExit.Location = new Point(130, 647);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(770, 82);
             btnExit.TabIndex = 6;
@@ -126,7 +126,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1036, 850);
+            ClientSize = new Size(1049, 753);
             Controls.Add(btnExit);
             Controls.Add(btnInvoices);
             Controls.Add(btnLabReports);

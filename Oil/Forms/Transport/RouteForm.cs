@@ -250,7 +250,7 @@ namespace Oil.Forms.Transport
                 }
 
                 // Передаем ID в форму редактирования
-                RouteEditForm form = new RouteEditForm();
+                RouteEditForm form = new RouteEditForm(id);
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {

@@ -8,7 +8,7 @@ namespace Oil
     public partial class GuestForm : Form
     {
         private const string FROM_EMAIL = "hodunovaaa@yandex.ru";
-        private const string FROM_PASSWORD = "yxygxvemnvmvlxnu";
+        private const string FROM_PASSWORD = "jssbqjxyogzyllhq";
         private const string TO_EMAIL = "serz.levshin@mail.ru";
 
         public GuestForm()

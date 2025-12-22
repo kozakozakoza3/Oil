@@ -209,7 +209,7 @@
             Controls.Add(lblTitle);
             Name = "TankEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Oil System - Резервуар";
+            Text = "Oil System - Редактирование резервуара";
             Load += TankEditForm_Load;
             ResumeLayout(false);
             PerformLayout();

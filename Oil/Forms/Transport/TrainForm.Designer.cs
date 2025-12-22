@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tabControlTrains = new TabControl();
             tabPageTrains = new TabPage();
             panelTrainButtons = new Panel();
@@ -95,7 +95,7 @@
             tabControlTrains.Location = new Point(12, 126);
             tabControlTrains.Name = "tabControlTrains";
             tabControlTrains.SelectedIndex = 0;
-            tabControlTrains.Size = new Size(1126, 562);
+            tabControlTrains.Size = new Size(1126, 506);
             tabControlTrains.TabIndex = 0;
             // 
             // tabPageTrains
@@ -105,7 +105,7 @@
             tabPageTrains.Location = new Point(4, 30);
             tabPageTrains.Name = "tabPageTrains";
             tabPageTrains.Padding = new Padding(3);
-            tabPageTrains.Size = new Size(1118, 528);
+            tabPageTrains.Size = new Size(1118, 472);
             tabPageTrains.TabIndex = 0;
             tabPageTrains.Text = "Поезда";
             tabPageTrains.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             // 
             // btnEditTrain
             // 
-            btnEditTrain.BackColor = Color.SteelBlue;
+            btnEditTrain.BackColor = Color.Goldenrod;
             btnEditTrain.Font = new Font("Constantia", 10.2F);
             btnEditTrain.ForeColor = Color.White;
             btnEditTrain.Location = new Point(101, 3);
@@ -168,20 +168,20 @@
             dgvTrains.BackgroundColor = Color.WhiteSmoke;
             dgvTrains.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTrains.ContextMenuStrip = contextMenuTrains;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dgvTrains.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvTrains.DefaultCellStyle = dataGridViewCellStyle3;
             dgvTrains.Location = new Point(6, 60);
             dgvTrains.Name = "dgvTrains";
             dgvTrains.ReadOnly = true;
             dgvTrains.RowHeadersWidth = 51;
             dgvTrains.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvTrains.Size = new Size(1106, 463);
+            dgvTrains.Size = new Size(1106, 407);
             dgvTrains.TabIndex = 0;
             dgvTrains.CellDoubleClick += dgvTrains_CellDoubleClick;
             // 
@@ -285,14 +285,14 @@
             dgvLocomotives.BackgroundColor = Color.WhiteSmoke;
             dgvLocomotives.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLocomotives.ContextMenuStrip = contextMenuLocomotives;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvLocomotives.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvLocomotives.DefaultCellStyle = dataGridViewCellStyle4;
             dgvLocomotives.Location = new Point(6, 60);
             dgvLocomotives.Name = "dgvLocomotives";
             dgvLocomotives.ReadOnly = true;
@@ -402,14 +402,14 @@
             dgvCarriages.BackgroundColor = Color.WhiteSmoke;
             dgvCarriages.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCarriages.ContextMenuStrip = contextMenuCarriages;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.LightSteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvCarriages.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Arial", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvCarriages.DefaultCellStyle = dataGridViewCellStyle1;
             dgvCarriages.Location = new Point(6, 60);
             dgvCarriages.Name = "dgvCarriages";
             dgvCarriages.ReadOnly = true;
@@ -452,7 +452,7 @@
             // panelTop
             // 
             panelTop.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelTop.BackColor = Color.SteelBlue;
+            panelTop.BackColor = Color.CadetBlue;
             panelTop.Controls.Add(lblTitle);
             panelTop.Location = new Point(12, 12);
             panelTop.Name = "panelTop";
@@ -477,7 +477,7 @@
             panelBottom.BackColor = Color.LightSteelBlue;
             panelBottom.Controls.Add(btnRefresh);
             panelBottom.Controls.Add(btnExit);
-            panelBottom.Location = new Point(12, 694);
+            panelBottom.Location = new Point(12, 638);
             panelBottom.Name = "panelBottom";
             panelBottom.Size = new Size(1126, 60);
             panelBottom.TabIndex = 2;
@@ -485,7 +485,7 @@
             // btnRefresh
             // 
             btnRefresh.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnRefresh.BackColor = Color.SteelBlue;
+            btnRefresh.BackColor = Color.CadetBlue;
             btnRefresh.Font = new Font("Arial", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             btnRefresh.ForeColor = Color.White;
             btnRefresh.Location = new Point(884, 11);
@@ -514,7 +514,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(1150, 766);
+            ClientSize = new Size(1150, 710);
             Controls.Add(panelBottom);
             Controls.Add(panelTop);
             Controls.Add(tabControlTrains);

@@ -234,5 +234,129 @@ namespace Oil.Forms
                 btnEdit_Click(sender, e); // Вызываем тот же метод, что и при нажатии кнопки "Изменить"
             }
         }
+    
+
+
+      public string GetAnalysisQueryForTest()
+        {
+            return @"
+                SELECT 
+                    la.laboratory_analysis_id,
+                    opn.product_name || ' - ' || m.mark_name AS product_name,
+                    e.last_name || ' ' || e.name AS analyst_name,
+                    la.sample_volume || ' ' || la.unit_of_measure_volume AS sample_info,
+                    la.oil_product_density || ' ' || la.unit_of_measure_density AS density_info,
+                    la.oil_product_sulfur_content || ' ' || la.unit_of_measure_sulfur AS sulfur_info,
+                    la.oil_product_viscosity || ' ' || la.unit_of_measure_viscosity AS viscosity_info,
+                    la.oil_product_flash_point || ' ' || la.unit_of_measure_flash AS flash_info,
+                    la.date_time_analysis
+                FROM laboratory_analysis la
+                JOIN oil_product op ON la.oil_product_id = op.oil_product_id
+                JOIN oil_product_name opn ON op.oil_product_name_id = opn.oil_product_name_id
+                JOIN mark m ON op.mark_id = m.mark_id
+                JOIN employee e ON la.employee_id = e.employee_id
+                ORDER BY la.date_time_analysis DESC";
+        }
+
+        // 2. Метод для получения SQL запроса печати (публичный для тестов)
+        public string GetPrintQueryForTest(int analysisId)
+        {
+            return $@"
+                SELECT 
+                    opn.product_name,
+                    m.mark_name,
+                    e.last_name || ' ' || e.name as analyst_name,
+                    p.post_name as analyst_position,
+                    la.sample_volume,
+                    la.unit_of_measure_volume,
+                    la.oil_product_density,
+                    la.unit_of_measure_density,
+                    la.oil_product_sulfur_content,
+                    la.unit_of_measure_sulfur,
+                    la.oil_product_viscosity,
+                    la.unit_of_measure_viscosity,
+                    la.oil_product_flash_point,
+                    la.unit_of_measure_flash,
+                    la.date_time_analysis
+                FROM laboratory_analysis la
+                JOIN oil_product op ON la.oil_product_id = op.oil_product_id
+                JOIN oil_product_name opn ON op.oil_product_name_id = opn.oil_product_name_id
+                JOIN mark m ON op.mark_id = m.mark_id
+                JOIN employee e ON la.employee_id = e.employee_id
+                JOIN post p ON e.post_id = p.post_id
+                WHERE la.laboratory_analysis_id = {analysisId}";
+        }
+
+        // 3. Публичная версия метода LoadAnalyses для тестов
+        public void LoadAnalysesPublic()
+        {
+            LoadAnalyses(); // просто вызываем оригинальный приватный метод
+        }
+
+        // 4. Метод для проверки, можно ли редактировать (для тестов)
+        public bool CanEditSelectedAnalysis()
+        {
+            return dgvAnalyses.SelectedRows.Count > 0;
+        }
+
+        // 5. Метод для получения ID выбранного анализа (для тестов)
+        public int? GetSelectedAnalysisIdForTest()
+        {
+            if (dgvAnalyses.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvAnalyses.SelectedRows[0];
+                if (row.Cells["laboratory_analysis_id"].Value != null)
+                {
+                    return Convert.ToInt32(row.Cells["laboratory_analysis_id"].Value);
+                }
+            }
+            return null;
+        }
+
+        // 6. Метод для проверки, можно ли печатать (для тестов)
+        public bool CanPrintSelectedAnalysis()
+        {
+            return dgvAnalyses.SelectedRows.Count > 0;
+        }
+
+        // 7. Метод для проверки, можно ли добавлять анализ (для тестов)
+        public bool CanAddNewAnalysis()
+        {
+            // Всегда можно добавить новый анализ
+            return true;
+        }
+
+        // 8. Метод для получения DataGridView (для тестов)
+        public DataGridView GetAnalysesDataGridView()
+        {
+            return dgvAnalyses;
+        }
+
+        // 9. Метод для получения списка колонок (для тестов)
+        public string[] GetVisibleColumnNames()
+        {
+            if (dgvAnalyses.Columns.Count == 0)
+                return new string[0];
+
+            var columnNames = new System.Collections.Generic.List<string>();
+            foreach (DataGridViewColumn column in dgvAnalyses.Columns)
+            {
+                if (column.Visible)
+                {
+                    columnNames.Add(column.Name);
+                }
+            }
+            return columnNames.ToArray();
+        }
+
+        // 10. Метод для проверки формата даты в DataGridView (для тестов)
+        public string GetDateTimeColumnFormat()
+        {
+            if (dgvAnalyses.Columns.Contains("date_time_analysis"))
+            {
+                return dgvAnalyses.Columns["date_time_analysis"].DefaultCellStyle.Format;
+            }
+            return null;
+        }
     }
 }
